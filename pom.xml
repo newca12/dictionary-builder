@@ -12,28 +12,6 @@
 		<name>EDLA</name>
 	</organization>
 
-	<repositories>
-		<repository>
-			<id>java.net</id>
-			<name>The Java.net repo</name>
-			<url>http://download.java.net/maven/2</url>
-		</repository>
-		<!--
-			<repository> <id>jboss.org</id> <name>The JBoss maven repo</name>
-			<url>http://repository.jboss.com/maven2</url> </repository>
-			<repository> <id>snapshots.codehaus.org</id> <name>codehaus snapshot
-			repo</name> <url>http://snapshots.repository.codehaus.org</url>
-			<snapshots> <enabled>true</enabled> </snapshots> </repository>
-		-->
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>maven2-repository.dev.java.net</id>
-			<name>Java.net Maven 2 Repository</name>
-			<url>http://download.java.net/maven/2</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<build>
 		<finalName>dicoxsd2java</finalName>
 		<plugins>
@@ -53,27 +31,27 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			<!--  
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxb2-maven-plugin</artifactId>
-				<configuration>
-					<packageName>org.edla.wikimediaschema</packageName>
-					<outputDirectory> ${basedir}/src/main/generated-source
-				</outputDirectory>
-				</configuration>
-			</plugin>
-			-->
+			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>jaxb2-maven-plugin</artifactId> 
+				<configuration> <packageName>org.edla.wikimediaschema</packageName> <outputDirectory> 
+				${basedir}/src/main/generated-source </outputDirectory> </configuration> 
+				</plugin> -->
 			<plugin>
 				<groupId>org.jvnet.jaxb2.maven2</groupId>
 				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.7.1</version>
+				<version>0.7.4</version>
 				<configuration>
 					<generatePackage>org.edla.wikimediaschema</generatePackage>
 					<generateDirectory>src/main/java</generateDirectory>
 					<removeOldOutput>false</removeOldOutput>
 					<forceRegenerate>true</forceRegenerate>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
