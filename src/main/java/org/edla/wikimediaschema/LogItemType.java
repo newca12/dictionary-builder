@@ -18,21 +18,22 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
- * <p>Java class for UploadType complex type.
+ * <p>Java class for LogItemType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="UploadType">
+ * &lt;complexType name="LogItemType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" minOccurs="0"/>
  *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
  *         &lt;element name="contributor" type="{http://www.mediawiki.org/xml/export-0.4/}ContributorType"/>
- *         &lt;element name="comment" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="filename" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="src" type="{http://www.w3.org/2001/XMLSchema}anyURI"/>
- *         &lt;element name="size" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
+ *         &lt;element name="comment" type="{http://www.mediawiki.org/xml/export-0.4/}CommentType" minOccurs="0"/>
+ *         &lt;element name="type" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="action" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="text" type="{http://www.mediawiki.org/xml/export-0.4/}TextType"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -42,30 +43,55 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "UploadType", propOrder = {
+@XmlType(name = "LogItemType", propOrder = {
+    "id",
     "timestamp",
     "contributor",
     "comment",
-    "filename",
-    "src",
-    "size"
+    "type",
+    "action",
+    "text"
 })
-public class UploadType {
+public class LogItemType {
 
+    @XmlSchemaType(name = "positiveInteger")
+    protected BigInteger id;
     @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar timestamp;
     @XmlElement(required = true)
     protected ContributorType contributor;
-    protected String comment;
+    protected CommentType comment;
     @XmlElement(required = true)
-    protected String filename;
+    protected String type;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "anyURI")
-    protected String src;
+    protected String action;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "positiveInteger")
-    protected BigInteger size;
+    protected TextType text;
+
+    /**
+     * Gets the value of the id property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
+     */
+    public BigInteger getId() {
+        return id;
+    }
+
+    /**
+     * Sets the value of the id property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
+     */
+    public void setId(BigInteger value) {
+        this.id = value;
+    }
 
     /**
      * Gets the value of the timestamp property.
@@ -120,10 +146,10 @@ public class UploadType {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link CommentType }
      *     
      */
-    public String getComment() {
+    public CommentType getComment() {
         return comment;
     }
 
@@ -132,83 +158,83 @@ public class UploadType {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link CommentType }
      *     
      */
-    public void setComment(String value) {
+    public void setComment(CommentType value) {
         this.comment = value;
     }
 
     /**
-     * Gets the value of the filename property.
+     * Gets the value of the type property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getFilename() {
-        return filename;
+    public String getType() {
+        return type;
     }
 
     /**
-     * Sets the value of the filename property.
+     * Sets the value of the type property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setFilename(String value) {
-        this.filename = value;
+    public void setType(String value) {
+        this.type = value;
     }
 
     /**
-     * Gets the value of the src property.
+     * Gets the value of the action property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getSrc() {
-        return src;
+    public String getAction() {
+        return action;
     }
 
     /**
-     * Sets the value of the src property.
+     * Sets the value of the action property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setSrc(String value) {
-        this.src = value;
+    public void setAction(String value) {
+        this.action = value;
     }
 
     /**
-     * Gets the value of the size property.
+     * Gets the value of the text property.
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link TextType }
      *     
      */
-    public BigInteger getSize() {
-        return size;
+    public TextType getText() {
+        return text;
     }
 
     /**
-     * Sets the value of the size property.
+     * Sets the value of the text property.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link TextType }
      *     
      */
-    public void setSize(BigInteger value) {
-        this.size = value;
+    public void setText(TextType value) {
+        this.text = value;
     }
 
 }

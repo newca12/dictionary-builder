@@ -8,7 +8,6 @@
 
 package org.edla.wikimediaschema;
 
-import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -17,16 +16,15 @@ import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * <p>Java class for NamespaceType complex type.
+ * <p>Java class for CommentType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="NamespaceType">
+ * &lt;complexType name="CommentType">
  *   &lt;simpleContent>
  *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *       &lt;attribute name="key" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="case" type="{http://www.mediawiki.org/xml/export-0.4/}CaseType" />
+ *       &lt;attribute name="deleted" type="{http://www.mediawiki.org/xml/export-0.4/}DeletedFlagType" />
  *     &lt;/extension>
  *   &lt;/simpleContent>
  * &lt;/complexType>
@@ -35,17 +33,15 @@ import javax.xml.bind.annotation.XmlValue;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "NamespaceType", propOrder = {
+@XmlType(name = "CommentType", propOrder = {
     "value"
 })
-public class NamespaceType {
+public class CommentType {
 
     @XmlValue
     protected String value;
-    @XmlAttribute(name = "key")
-    protected BigInteger key;
-    @XmlAttribute(name = "case")
-    protected CaseType _case;
+    @XmlAttribute(name = "deleted")
+    protected DeletedFlagType deleted;
 
     /**
      * Gets the value of the value property.
@@ -72,51 +68,27 @@ public class NamespaceType {
     }
 
     /**
-     * Gets the value of the key property.
+     * Gets the value of the deleted property.
      * 
      * @return
      *     possible object is
-     *     {@link BigInteger }
+     *     {@link DeletedFlagType }
      *     
      */
-    public BigInteger getKey() {
-        return key;
+    public DeletedFlagType getDeleted() {
+        return deleted;
     }
 
     /**
-     * Sets the value of the key property.
+     * Sets the value of the deleted property.
      * 
      * @param value
      *     allowed object is
-     *     {@link BigInteger }
+     *     {@link DeletedFlagType }
      *     
      */
-    public void setKey(BigInteger value) {
-        this.key = value;
-    }
-
-    /**
-     * Gets the value of the case property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CaseType }
-     *     
-     */
-    public CaseType getCase() {
-        return _case;
-    }
-
-    /**
-     * Sets the value of the case property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CaseType }
-     *     
-     */
-    public void setCase(CaseType value) {
-        this._case = value;
+    public void setDeleted(DeletedFlagType value) {
+        this.deleted = value;
     }
 
 }

@@ -14,34 +14,28 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for CaseType.
+ * <p>Java class for DeletedFlagType.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="CaseType">
+ * &lt;simpleType name="DeletedFlagType">
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}NMTOKEN">
- *     &lt;enumeration value="first-letter"/>
- *     &lt;enumeration value="case-sensitive"/>
- *     &lt;enumeration value="case-insensitive"/>
+ *     &lt;enumeration value="deleted"/>
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
  * 
  */
-@XmlType(name = "CaseType")
+@XmlType(name = "DeletedFlagType")
 @XmlEnum
-public enum CaseType {
+public enum DeletedFlagType {
 
-    @XmlEnumValue("first-letter")
-    FIRST_LETTER("first-letter"),
-    @XmlEnumValue("case-sensitive")
-    CASE_SENSITIVE("case-sensitive"),
-    @XmlEnumValue("case-insensitive")
-    CASE_INSENSITIVE("case-insensitive");
+    @XmlEnumValue("deleted")
+    DELETED("deleted");
     private final String value;
 
-    CaseType(String v) {
+    DeletedFlagType(String v) {
         value = v;
     }
 
@@ -49,8 +43,8 @@ public enum CaseType {
         return value;
     }
 
-    public static CaseType fromValue(String v) {
-        for (CaseType c: CaseType.values()) {
+    public static DeletedFlagType fromValue(String v) {
+        for (DeletedFlagType c: DeletedFlagType.values()) {
             if (c.value.equals(v)) {
                 return c;
             }

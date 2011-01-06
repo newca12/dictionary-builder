@@ -75,8 +75,8 @@ public class Dico {
 
 			wordsWriter.close();
 			exclusWriter.close();
-			System.out.println("entrées:" + pages.size());
-			System.out.println("nb exclus:" + exclus);
+			System.out.println("total number of entries:" + pages.size());
+			System.out.println("total number of removed entries:" + exclus);
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
@@ -87,7 +87,7 @@ public class Dico {
 		if (word.contains("/") || word.contains(":")) {
 			return null;
 		}
-		final List revisions = p.getRevisionOrUpload();
+		final List revisions = p.getRevisionOrUploadOrLogitem();
 		for (int j = 0; j < revisions.size(); j++) {
 			final RevisionType r = (RevisionType) revisions.get(j);
 			definition = r.getText().getValue();
