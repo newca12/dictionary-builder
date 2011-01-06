@@ -34,6 +34,7 @@ public class DicoBuilder {
 	private Locator locator;
 	private FileWriter wordsWriter=null;
 	private FileWriter exclusWriter=null;
+	private String language;
 	int exclus = 0;
 	int wordCounter = 0;
 	
@@ -41,7 +42,8 @@ public class DicoBuilder {
 	try {
 		this.locator = Locator.getInstance();
 		wordsWriter = new FileWriter(dicoProperties.wordsFile);
-		exclusWriter = new FileWriter(dicoProperties.exclusFile);	
+		exclusWriter = new FileWriter(dicoProperties.exclusFile);
+		language = dicoProperties.language;
 	} catch (final IOException e) {
 			e.printStackTrace();
 		}
@@ -75,7 +77,7 @@ public class DicoBuilder {
 			final RevisionType r = (RevisionType) revisions.get(j);
 			definition = r.getText().getValue();
 		}
-		if (!definition.contains("{{=fr=}}")) {
+		if (!definition.contains("{{="+language+"=}}")) {
 			return null;
 		}
 		return definition;
