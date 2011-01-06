@@ -3,17 +3,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.edla.dico</groupId>
-	<artifactId>dicoxsd2java</artifactId>
+	<artifactId>dictionary-builder</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0</version>
-	<name>Maven Webapp Archetype</name>
-	<url>http://maven.apache.org</url>
+	<name>Dictionary builder</name>
+	<url>http://www.edla.org</url>
 	<organization>
 		<name>EDLA</name>
 	</organization>
 
 	<build>
-		<finalName>dicoxsd2java</finalName>
+		<finalName>dictionary-builder</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -26,9 +26,17 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
-				<version>2.3</version>
+				<version>2.4.3</version>
 				<configuration>
 					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<useDefaultManifestFile>true</useDefaultManifestFile>
 				</configuration>
 			</plugin>
 			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>jaxb2-maven-plugin</artifactId> 
@@ -45,13 +53,8 @@
 					<removeOldOutput>false</removeOldOutput>
 					<forceRegenerate>true</forceRegenerate>
 				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
+				<!-- <executions> <execution> <goals> <goal>generate</goal> </goals> 
+					</execution> </executions> -->
 			</plugin>
 		</plugins>
 	</build>
