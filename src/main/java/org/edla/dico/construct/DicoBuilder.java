@@ -30,42 +30,43 @@ import org.edla.wikimediaschema.PageType;
 import org.edla.wikimediaschema.RevisionType;
 
 public class DicoBuilder {
-	
+
 	private Locator locator;
-	private FileWriter wordsWriter=null;
-	private FileWriter exclusWriter=null;
+	private FileWriter wordsWriter = null;
+	private FileWriter exclusWriter = null;
 	private String language;
+	private String languageShort;
 	int exclus = 0;
 	int wordCounter = 0;
-	
+
 	public DicoBuilder(final DicoProperties dicoProperties) {
-	try {
-		this.locator = Locator.getInstance();
-		wordsWriter = new FileWriter(dicoProperties.wordsFile);
-		exclusWriter = new FileWriter(dicoProperties.exclusFile);
-		language = dicoProperties.language;
-	} catch (final IOException e) {
+		try {
+			this.locator = Locator.getInstance();
+			wordsWriter = new FileWriter(dicoProperties.wordsFile);
+			exclusWriter = new FileWriter(dicoProperties.exclusFile);
+			language = dicoProperties.language;
+			languageShort = dicoProperties.languageShort;
+		} catch (final IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void buildDico(PageType page) throws IOException {
 		String word = page.getTitle();
-		String definition = this.filtre(page,word);
+		String definition = this.filtre(page, word);
 		if (definition != null) {
 			wordsWriter.write(word);
 			wordsWriter.write('\n');
-			//System.out.println("word"+word);
-			//System.out.println("definition"+definition);
-			wordCounter ++;
-			this.buildDefinitionFiles(word,definition);
+			// System.out.println("word"+word);
+			// System.out.println("definition"+definition);
+			wordCounter++;
+			this.buildDefinitionFiles(word, definition);
 		} else {
 			exclusWriter.write(word);
 			exclusWriter.write('\n');
-			exclus ++;
+			exclus++;
 		}
 	}
-
 
 	private String filtre(final PageType p, final String word) {
 		String definition = null;
@@ -77,14 +78,15 @@ public class DicoBuilder {
 			final RevisionType r = (RevisionType) revisions.get(j);
 			definition = r.getText().getValue();
 		}
-		if (!definition.contains("{{="+language+"=}}")) {
-			return null;
+		if (definition.contains("{{=" + languageShort + "=}}")
+				|| definition.contains("==" + language + "==")) {
+			return definition;
 		}
-		return definition;
+		return null;
 	}
 
 	private void buildDefinitionFiles(final String word, final String definition) {
-		
+
 		final String directory = this.locator.locate(word);
 
 		try {
@@ -94,8 +96,8 @@ public class DicoBuilder {
 							+ word + ".gz")));
 			/*
 			 * ZipOutputStream writer = new ZipOutputStream( new
-			 * BufferedOutputStream(new FileOutputStream(directory + "/" + word +
-			 * ".zip")));
+			 * BufferedOutputStream(new FileOutputStream(directory + "/" + word
+			 * + ".zip")));
 			 */
 			writer.write(definition.getBytes());
 
@@ -107,8 +109,8 @@ public class DicoBuilder {
 			System.out.println(word + " " + directory);
 			e.printStackTrace();
 		}
-	}	
-	
+	}
+
 	public void endProcess() throws IOException {
 		wordsWriter.close();
 		exclusWriter.close();

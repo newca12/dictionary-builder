@@ -31,6 +31,8 @@ public class DicoProperties {
 	public String exclusFile;
 	
 	public String language;
+	
+	public String languageShort;
 
 	public static DicoProperties getInstance() {
 		if (null == DicoProperties.instance) {
@@ -62,5 +64,6 @@ public class DicoProperties {
 		this.exclusFile = prop.getProperty("exclusFile");
 		this.xmlFile = prop.getProperty("xmlFile");
 		this.language = prop.getProperty("language");
+		this.languageShort = prop.getProperty("languageShort");
 	}
 }
