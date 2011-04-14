@@ -76,7 +76,13 @@ public class RunConstructor {
 		XMLReader reader = factory.newSAXParser().getXMLReader();
 		reader.setContentHandler(unmarshaller.getUnmarshallerHandler());
 
+		try {
 		reader.parse(dicoProperties.xmlFile);
+		}
+		catch (Exception UnmarshalException) {
+			System.out.println("Sorry but your wikimedia dump is too old.");
+			System.exit(1);
+		}
 		dicoBuilder.endProcess();
 
 	}
