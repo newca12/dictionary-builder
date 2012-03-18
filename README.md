@@ -12,7 +12,7 @@ The purpose of [edla.org](http://www.edla.org) is to promote the state of the ar
 1. Get a fresh wiktionary backup   
 Choose your favorite language and download the dump containing the current versions of article content [here](http://download.wikimedia.org/backup-index.html)  
 Example for the french dump:  
-http://download.wikimedia.org/frwiktionary/20101108/frwiktionary-20101108-pages-articles.xml.bz2
+http://dumps.wikimedia.org/frwiktionary/latest/frwiktionary-latest-pages-articles.xml.bz2
 
 2. Uncompress the fresh downloaded dump somewhere
 
@@ -21,5 +21,7 @@ http://download.wikimedia.org/frwiktionary/20101108/frwiktionary-20101108-pages-
 4. Build the project : mvn install
 
 5. Launch the program :  java -jar dictionary-builder.jar
+
+6. From the french dictionary 1167195 entries are generated in less than 15 min and 5 Gigas disk space are required for the dictionary.  
 
 That's it.

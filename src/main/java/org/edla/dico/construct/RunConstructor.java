@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2007-2011  Olivier ROLAND (olivier.roland@edla.org)
+    Copyright (C) 2007-2012  Olivier ROLAND (olivier.roland@edla.org)
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -80,7 +80,8 @@ public class RunConstructor {
 			reader.parse(dicoProperties.xmlFile);
 		}
 		catch (Exception UnmarshalException) {
-			System.out.println("Sorry but your wikimedia dump is too old.");
+			//System.out.println(UnmarshalException.getMessage());
+			System.out.println("Sorry but your wikimedia dump is too old or too recent.");
 			System.exit(1);
 		}
 		dicoBuilder.endProcess();
