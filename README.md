@@ -1,7 +1,7 @@
 # Dictionary builder #
 ## About ##
-Dictionary builder allow you to build dictionaries based on [Wiktionary](http://www.wiktionary.org/) entries.  
-This project is also a demonstration of advanced JAXB techniques to unmarshall very large xml document.  
+Dictionary builder is a demonstration of advanced JAXB techniques to unmarshall very large xml document with very low memory footprint. 
+This project allow you to build dictionaries based on [Wiktionary](http://www.wiktionary.org/) entries.   
 
 dictionary-builder is an EDLA project.
 
