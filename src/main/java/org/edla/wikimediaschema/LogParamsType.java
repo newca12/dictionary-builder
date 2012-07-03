@@ -13,18 +13,20 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for CommentType complex type.
+ * <p>Java class for LogParamsType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CommentType">
+ * &lt;complexType name="LogParamsType">
  *   &lt;simpleContent>
  *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *       &lt;attribute name="deleted" type="{http://www.mediawiki.org/xml/export-0.7/}DeletedFlagType" />
+ *       &lt;attribute ref="{http://www.w3.org/XML/1998/namespace}space default="preserve""/>
  *     &lt;/extension>
  *   &lt;/simpleContent>
  * &lt;/complexType>
@@ -33,15 +35,16 @@ import javax.xml.bind.annotation.XmlValue;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CommentType", propOrder = {
+@XmlType(name = "LogParamsType", propOrder = {
     "value"
 })
-public class CommentType {
+public class LogParamsType {
 
     @XmlValue
     protected String value;
-    @XmlAttribute(name = "deleted")
-    protected DeletedFlagType deleted;
+    @XmlAttribute(name = "space", namespace = "http://www.w3.org/XML/1998/namespace")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String space;
 
     /**
      * Gets the value of the value property.
@@ -68,27 +71,31 @@ public class CommentType {
     }
 
     /**
-     * Gets the value of the deleted property.
+     * Gets the value of the space property.
      * 
      * @return
      *     possible object is
-     *     {@link DeletedFlagType }
+     *     {@link String }
      *     
      */
-    public DeletedFlagType getDeleted() {
-        return deleted;
+    public String getSpace() {
+        if (space == null) {
+            return "preserve";
+        } else {
+            return space;
+        }
     }
 
     /**
-     * Sets the value of the deleted property.
+     * Sets the value of the space property.
      * 
      * @param value
      *     allowed object is
-     *     {@link DeletedFlagType }
+     *     {@link String }
      *     
      */
-    public void setDeleted(DeletedFlagType value) {
-        this.deleted = value;
+    public void setSpace(String value) {
+        this.space = value;
     }
 
 }

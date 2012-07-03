@@ -16,12 +16,12 @@ import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * <p>Java class for CommentType complex type.
+ * <p>Java class for LogTextType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CommentType">
+ * &lt;complexType name="LogTextType">
  *   &lt;simpleContent>
  *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
  *       &lt;attribute name="deleted" type="{http://www.mediawiki.org/xml/export-0.7/}DeletedFlagType" />
@@ -33,10 +33,10 @@ import javax.xml.bind.annotation.XmlValue;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CommentType", propOrder = {
+@XmlType(name = "LogTextType", propOrder = {
     "value"
 })
-public class CommentType {
+public class LogTextType {
 
     @XmlValue
     protected String value;

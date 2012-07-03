@@ -16,15 +16,15 @@ import javax.xml.bind.annotation.XmlValue;
 
 
 /**
- * <p>Java class for CommentType complex type.
+ * <p>Java class for RedirectType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="CommentType">
+ * &lt;complexType name="RedirectType">
  *   &lt;simpleContent>
  *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
- *       &lt;attribute name="deleted" type="{http://www.mediawiki.org/xml/export-0.7/}DeletedFlagType" />
+ *       &lt;attribute name="title" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/extension>
  *   &lt;/simpleContent>
  * &lt;/complexType>
@@ -33,15 +33,15 @@ import javax.xml.bind.annotation.XmlValue;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "CommentType", propOrder = {
+@XmlType(name = "RedirectType", propOrder = {
     "value"
 })
-public class CommentType {
+public class RedirectType {
 
     @XmlValue
     protected String value;
-    @XmlAttribute(name = "deleted")
-    protected DeletedFlagType deleted;
+    @XmlAttribute(name = "title")
+    protected String title;
 
     /**
      * Gets the value of the value property.
@@ -68,27 +68,27 @@ public class CommentType {
     }
 
     /**
-     * Gets the value of the deleted property.
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
-     *     {@link DeletedFlagType }
+     *     {@link String }
      *     
      */
-    public DeletedFlagType getDeleted() {
-        return deleted;
+    public String getTitle() {
+        return title;
     }
 
     /**
-     * Sets the value of the deleted property.
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
-     *     {@link DeletedFlagType }
+     *     {@link String }
      *     
      */
-    public void setDeleted(DeletedFlagType value) {
-        this.deleted = value;
+    public void setTitle(String value) {
+        this.title = value;
     }
 
 }

@@ -73,7 +73,7 @@ public class DicoBuilder {
 		if (word.contains("/") || word.contains(":")) {
 			return null;
 		}
-		final List revisions = p.getRevisionOrUploadOrLogitem();
+		final List revisions = p.getRevisionOrUpload();
 		for (int j = 0; j < revisions.size(); j++) {
 			final RevisionType r = (RevisionType) revisions.get(j);
 			definition = r.getText().getValue();
