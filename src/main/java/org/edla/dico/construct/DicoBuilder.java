@@ -42,12 +42,25 @@ public class DicoBuilder {
 	public DicoBuilder(final DicoProperties dicoProperties) {
 		try {
 			this.locator = Locator.getInstance();
+			File folderExisting = new File(dicoProperties.root);
+			if (!folderExisting.exists()) {
+				System.out.println("Please, create the root folder "
+						+ dicoProperties.root);
+				System.out
+						.println("and/or check/fix your config file dico.properties and try again.");
+				System.exit(1);
+			}
 			wordsWriter = new FileWriter(dicoProperties.wordsFile);
 			exclusWriter = new FileWriter(dicoProperties.exclusFile);
 			language = dicoProperties.language;
 			languageShort = dicoProperties.languageShort;
 		} catch (final IOException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
+			System.out.println("TIPS: check your config file dico.properties");
+			System.exit(1);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			System.exit(1);
 		}
 	}
 

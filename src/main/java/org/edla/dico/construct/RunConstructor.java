@@ -17,8 +17,7 @@
 
 package org.edla.dico.construct;
 
-import java.io.File;
-import java.io.FileWriter;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.xml.bind.JAXBContext;
@@ -78,10 +77,18 @@ public class RunConstructor {
 
 		try {
 			reader.parse(dicoProperties.xmlFile);
-		}
-		catch (Exception UnmarshalException) {
-			//System.out.println(UnmarshalException.getMessage());
-			System.out.println("Sorry but your wikimedia dump is too old or too recent.");
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+			System.out.println("TIPS: check your config file dico.properties");
+			System.exit(1);
+		} catch (Exception UnmarshalException) {
+			System.out.println(UnmarshalException.getMessage());
+			System.out
+					.println("Sorry but your wikimedia dump is probably too old.");
+			System.out
+					.println("If your wikimedia dump is up to date please fill out a problem report form");
+			System.out
+					.println("and submit it : https://github.com/newca12/dictionary-builder/issues");
 			System.exit(1);
 		}
 		dicoBuilder.endProcess();

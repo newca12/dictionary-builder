@@ -1,4 +1,4 @@
-# Dictionary builder #
+# Dictionary builder # [![Build Status](https://buildhive.cloudbees.com/job/newca12/job/dictionary-builder/badge/icon)](https://buildhive.cloudbees.com/job/newca12/job/dictionary-builder/)
 ## About ##
 Dictionary builder is a demonstration of advanced JAXB techniques to unmarshall very large xml document with very low memory footprint. 
 This project allow you to build dictionaries based on [Wiktionary](http://www.wiktionary.org/) entries.   
