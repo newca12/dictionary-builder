@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2007-2012  Olivier ROLAND (olivier.roland@edla.org)
+    Copyright (C) 2007-2013  Olivier ROLAND (olivier.roland@edla.org)
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -34,8 +34,8 @@ public class DicoBuilder {
 	private Locator locator;
 	private FileWriter wordsWriter = null;
 	private FileWriter exclusWriter = null;
-	private String language;
 	private String languageShort;
+	private boolean expression;
 	int exclus = 0;
 	int wordCounter = 0;
 
@@ -52,8 +52,8 @@ public class DicoBuilder {
 			}
 			wordsWriter = new FileWriter(dicoProperties.wordsFile);
 			exclusWriter = new FileWriter(dicoProperties.exclusFile);
-			language = dicoProperties.language;
 			languageShort = dicoProperties.languageShort;
+			expression = dicoProperties.expression;
 		} catch (final IOException e) {
 			System.out.println(e.getMessage());
 			System.out.println("TIPS: check your config file dico.properties");
@@ -86,15 +86,21 @@ public class DicoBuilder {
 		if (word.contains("/") || word.contains(":")) {
 			return null;
 		}
+		if ((expression == false) && word.contains(" "))
+			return null;
+		//System.out.println("word"+word);
 		final List revisions = p.getRevisionOrUpload();
 		for (int j = 0; j < revisions.size(); j++) {
 			final RevisionType r = (RevisionType) revisions.get(j);
 			definition = r.getText().getValue();
 		}
-		if (definition.contains("{{=" + languageShort + "=}}")
-				|| definition.contains("==" + language + "==")) {
+		//System.out.println("definition"+definition);
+		if (definition.contains("== {{langue|" + languageShort + "}} ==")
+				|| definition.contains("== {{langue|" + languageShort + "}}==")
+				|| definition.contains("=={{langue|" + languageShort + "}}==")
+				|| definition.contains("=={{langue|" + languageShort + "}} =="))
 			return definition;
-		}
+		
 		return null;
 	}
 

@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2007-2012  Olivier ROLAND (olivier.roland@edla.org)
+    Copyright (C) 2007-2013  Olivier ROLAND (olivier.roland@edla.org)
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -30,9 +30,9 @@ public class DicoProperties {
 
 	public String exclusFile;
 	
-	public String language;
-	
 	public String languageShort;
+	
+	public boolean expression;
 
 	public static DicoProperties getInstance() {
 		if (null == DicoProperties.instance) {
@@ -63,7 +63,7 @@ public class DicoProperties {
 		this.wordsFile = prop.getProperty("wordsFile");
 		this.exclusFile = prop.getProperty("exclusFile");
 		this.xmlFile = prop.getProperty("xmlFile");
-		this.language = prop.getProperty("language");
 		this.languageShort = prop.getProperty("languageShort");
+		this.expression = Boolean.getBoolean(prop.getProperty("expression"));
 	}
 }

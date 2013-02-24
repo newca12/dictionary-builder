@@ -20,7 +20,7 @@ http://dumps.wikimedia.org/frwiktionary/latest/frwiktionary-latest-pages-article
 
 4. Build the project : mvn install
 
-5. Launch the program :  java -jar dictionary-builder.jar
+5. Launch the program :  java -jar target/dictionary-builder.jar
 
 6. From the french dictionary 1167195 entries are generated in less than 15 min and 5 Gigas disk space are required for the dictionary.  
 
