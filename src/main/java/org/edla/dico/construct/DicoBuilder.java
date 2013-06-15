@@ -34,6 +34,7 @@ public class DicoBuilder {
 	private Locator locator;
 	private FileWriter wordsWriter = null;
 	private FileWriter exclusWriter = null;
+	private String language;
 	private String languageShort;
 	private boolean expression;
 	int exclus = 0;
@@ -52,6 +53,7 @@ public class DicoBuilder {
 			}
 			wordsWriter = new FileWriter(dicoProperties.wordsFile);
 			exclusWriter = new FileWriter(dicoProperties.exclusFile);
+			language = dicoProperties.language;
 			languageShort = dicoProperties.languageShort;
 			expression = dicoProperties.expression;
 		} catch (final IOException e) {
@@ -67,6 +69,7 @@ public class DicoBuilder {
 	public void buildDico(PageType page) throws IOException {
 		String word = page.getTitle();
 		String definition = this.filtre(page, word);
+
 		if (definition != null) {
 			wordsWriter.write(word);
 			wordsWriter.write('\n');
@@ -88,19 +91,23 @@ public class DicoBuilder {
 		}
 		if ((expression == false) && word.contains(" "))
 			return null;
-		//System.out.println("word"+word);
+		//System.out.println("word:" + word);
 		final List revisions = p.getRevisionOrUpload();
 		for (int j = 0; j < revisions.size(); j++) {
 			final RevisionType r = (RevisionType) revisions.get(j);
 			definition = r.getText().getValue();
 		}
-		//System.out.println("definition"+definition);
-		if (definition.contains("== {{langue|" + languageShort + "}} ==")
+		//System.out.println("======= definition =======");
+		//System.out.println(definition);
+		if (definition.contains("==" + language + "==") //needed for English wiktionary
+				//needed for French wiktionary
+				|| definition
+						.contains("== {{langue|" + languageShort + "}} ==")
 				|| definition.contains("== {{langue|" + languageShort + "}}==")
 				|| definition.contains("=={{langue|" + languageShort + "}}==")
 				|| definition.contains("=={{langue|" + languageShort + "}} =="))
 			return definition;
-		
+
 		return null;
 	}
 

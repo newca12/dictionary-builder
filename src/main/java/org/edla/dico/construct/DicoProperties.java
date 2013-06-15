@@ -29,10 +29,14 @@ public class DicoProperties {
 	public String wordsFile;
 
 	public String exclusFile;
-	
+
+	public String language;
+
 	public String languageShort;
-	
+
 	public boolean expression;
+
+	private Properties prop = new Properties();
 
 	public static DicoProperties getInstance() {
 		if (null == DicoProperties.instance) {
@@ -50,8 +54,9 @@ public class DicoProperties {
 		 * prop.load(in); in.close(); } catch (final Exception e) {
 		 * e.printStackTrace(); }
 		 */
-		Properties prop = new Properties();
-		System.out.println(this.getClass().getPackage().getName()); 
+
+		//System.out.println(this.getClass().getPackage().getName());
+		System.out.println("Your dictionary is being built. Please wait.");
 		InputStream stream = this.getClass().getResourceAsStream(
 				"dico.properties");
 		try {
@@ -59,11 +64,33 @@ public class DicoProperties {
 		} catch (final Exception e) {
 			e.printStackTrace();
 		}
-		this.root = prop.getProperty("root");
-		this.wordsFile = prop.getProperty("wordsFile");
-		this.exclusFile = prop.getProperty("exclusFile");
-		this.xmlFile = prop.getProperty("xmlFile");
-		this.languageShort = prop.getProperty("languageShort");
-		this.expression = Boolean.getBoolean(prop.getProperty("expression"));
+
+		this.root = getPropertySafely("root");
+		this.wordsFile = getPropertySafely("wordsFile");
+		this.exclusFile = getPropertySafely("excludedWordsFile");
+		this.xmlFile = getPropertySafely("xmlFile");
+		this.language = getPropertySafely("language");
+		this.languageShort = getPropertySafely("languageShort");
+		this.expression = Boolean.getBoolean(getPropertySafely("expression"));
+	}
+
+	private String getPropertySafely(String key) {
+
+		try {
+			String property = prop.getProperty(key);
+			if (property == null) {
+				System.out.println("no entry for the property : " + key);
+				System.out
+						.println("add it to your config file dico.properties and try again.");
+				System.exit(1);
+			}
+			return property;
+		} catch (Exception e) {
+			System.out.println("Cannot load your config file dico.properties");
+			System.out
+					.println("Check/fix your config file dico.properties and try again.");
+			System.exit(1);
+			return null;
+		}
 	}
 }

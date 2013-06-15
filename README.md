@@ -11,17 +11,19 @@ The purpose of [edla.org](http://www.edla.org) is to promote the state of the ar
 
 1. Get a fresh wiktionary backup   
 Choose your favorite language and download the dump containing the current versions of article content [here](http://download.wikimedia.org/backup-index.html)  
-Example for the french dump:  
-http://dumps.wikimedia.org/frwiktionary/latest/frwiktionary-latest-pages-articles.xml.bz2
+Example for the english dump:
+http://dumps.wikimedia.org/enwiktionary/20130610/enwiktionary-20130610-pages-articles.xml.bz2
 
 2. Uncompress the fresh downloaded dump somewhere
 
 3. Edit dico.properties to indicate the language you choose, where the dump is located and last but not least where the dictionary should be generated. (Take care you need some free disk space to store your dictionary)
+(dico.properties is located here : dictionary-builder/src/main/resources/org/edla/dico/construct/dico.properties)
 
 4. Build the project : mvn install
+(You need to rebuild the project each time you modify the dico.properties file)
 
 5. Launch the program :  java -jar target/dictionary-builder.jar
 
-6. From the french dictionary 1167195 entries are generated in less than 15 min and 5 Gigas disk space are required for the dictionary.  
+6. From the English dictionary 422996 entries are generated in less than 15 min and 2 Gigas disk space are required for the dictionary.  
 
 That's it.
