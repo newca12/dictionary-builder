@@ -30,7 +30,7 @@ http://dumps.wikimedia.org/enwiktionary/20140819/enwiktionary-20140819-pages-art
 
 6. Some results :  
 From the English dictionary 462220 entries are generated in less than 20 min and 2 Gigas disk space are required for the dictionary.  
-From the French dictionary 1205597 entries are generated in less than 30 min and 5 Gigas disk space are required for the dictionary.
+From the French dictionary 1205597 entries are generated in less than 30 min and 5 Gigas disk space are required for the dictionary.   
 From the Nepali dictionary 1062 entries are generated in 3 seconds and 5 Megas disk space are required for the dictionary.  
 
 That's it.
