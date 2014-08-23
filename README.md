@@ -20,7 +20,7 @@ http://dumps.wikimedia.org/enwiktionary/20140819/enwiktionary-20140819-pages-art
 3. Edit dico.properties to indicate the language you choose, where the dump is located and last but not least where the dictionary should be generated.  
 (Take care you need some free disk space to store your dictionary)  
 (dico.properties is located here : dictionary-builder/src/main/resources/org/edla/dico/construct/dico.properties)  
-**If your language is not with a latin alphabet you need to convert the languege property to ISO 8859-1 with escape sequences.**  
+**If your language is not with a latin alphabet you need to convert the language property to ISO 8859-1 with escape sequences.**  
 **Example for Nepali, you need to set language=\u0928\u0947\u092A\u093E\u0932\u0940**
 
 4. Build the project : mvn install  
