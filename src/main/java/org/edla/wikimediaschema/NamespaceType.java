@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.6 
+// Ce fichier a √©t√© g√©n√©r√© par l'impl√©mentation de r√©f√©rence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2013.02.24 à 10:33:56 PM CET 
+// Toute modification apport√©e √† ce fichier sera perdue lors de la recompilation du sch√©ma source. 
+// G√©n√©r√© le : 2014.08.23 √† 05:44:25 PM CEST 
 //
 
 
@@ -19,14 +19,14 @@ import javax.xml.bind.annotation.XmlValue;
 /**
  * <p>Classe Java pour NamespaceType complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de sch√©ma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="NamespaceType">
  *   &lt;simpleContent>
  *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
  *       &lt;attribute name="key" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       &lt;attribute name="case" type="{http://www.mediawiki.org/xml/export-0.8/}CaseType" />
+ *       &lt;attribute name="case" type="{http://www.mediawiki.org/xml/export-0.9/}CaseType" />
  *     &lt;/extension>
  *   &lt;/simpleContent>
  * &lt;/complexType>
@@ -48,7 +48,7 @@ public class NamespaceType {
     protected CaseType _case;
 
     /**
-     * Obtient la valeur de la propriété value.
+     * Obtient la valeur de la propri√©t√© value.
      * 
      * @return
      *     possible object is
@@ -60,7 +60,7 @@ public class NamespaceType {
     }
 
     /**
-     * Définit la valeur de la propriété value.
+     * D√©finit la valeur de la propri√©t√© value.
      * 
      * @param value
      *     allowed object is
@@ -72,7 +72,7 @@ public class NamespaceType {
     }
 
     /**
-     * Obtient la valeur de la propriété key.
+     * Obtient la valeur de la propri√©t√© key.
      * 
      * @return
      *     possible object is
@@ -84,7 +84,7 @@ public class NamespaceType {
     }
 
     /**
-     * Définit la valeur de la propriété key.
+     * D√©finit la valeur de la propri√©t√© key.
      * 
      * @param value
      *     allowed object is
@@ -96,7 +96,7 @@ public class NamespaceType {
     }
 
     /**
-     * Obtient la valeur de la propriété case.
+     * Obtient la valeur de la propri√©t√© case.
      * 
      * @return
      *     possible object is
@@ -108,7 +108,7 @@ public class NamespaceType {
     }
 
     /**
-     * Définit la valeur de la propriété case.
+     * D√©finit la valeur de la propri√©t√© case.
      * 
      * @param value
      *     allowed object is

@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.6 
+// Ce fichier a √©t√© g√©n√©r√© par l'impl√©mentation de r√©f√©rence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2013.02.24 à 10:33:56 PM CET 
+// Toute modification apport√©e √† ce fichier sera perdue lors de la recompilation du sch√©ma source. 
+// G√©n√©r√© le : 2014.08.23 √† 05:44:25 PM CEST 
 //
 
 
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java pour SiteInfoType complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de sch√©ma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="SiteInfoType">
@@ -26,10 +26,11 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="sitename" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="dbname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="base" type="{http://www.w3.org/2001/XMLSchema}anyURI" minOccurs="0"/>
  *         &lt;element name="generator" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="case" type="{http://www.mediawiki.org/xml/export-0.8/}CaseType" minOccurs="0"/>
- *         &lt;element name="namespaces" type="{http://www.mediawiki.org/xml/export-0.8/}NamespacesType" minOccurs="0"/>
+ *         &lt;element name="case" type="{http://www.mediawiki.org/xml/export-0.9/}CaseType" minOccurs="0"/>
+ *         &lt;element name="namespaces" type="{http://www.mediawiki.org/xml/export-0.9/}NamespacesType" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -41,6 +42,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "SiteInfoType", propOrder = {
     "sitename",
+    "dbname",
     "base",
     "generator",
     "_case",
@@ -49,6 +51,7 @@ import javax.xml.bind.annotation.XmlType;
 public class SiteInfoType {
 
     protected String sitename;
+    protected String dbname;
     @XmlSchemaType(name = "anyURI")
     protected String base;
     protected String generator;
@@ -57,7 +60,7 @@ public class SiteInfoType {
     protected NamespacesType namespaces;
 
     /**
-     * Obtient la valeur de la propriété sitename.
+     * Obtient la valeur de la propri√©t√© sitename.
      * 
      * @return
      *     possible object is
@@ -69,7 +72,7 @@ public class SiteInfoType {
     }
 
     /**
-     * Définit la valeur de la propriété sitename.
+     * D√©finit la valeur de la propri√©t√© sitename.
      * 
      * @param value
      *     allowed object is
@@ -81,7 +84,31 @@ public class SiteInfoType {
     }
 
     /**
-     * Obtient la valeur de la propriété base.
+     * Obtient la valeur de la propri√©t√© dbname.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDbname() {
+        return dbname;
+    }
+
+    /**
+     * D√©finit la valeur de la propri√©t√© dbname.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDbname(String value) {
+        this.dbname = value;
+    }
+
+    /**
+     * Obtient la valeur de la propri√©t√© base.
      * 
      * @return
      *     possible object is
@@ -93,7 +120,7 @@ public class SiteInfoType {
     }
 
     /**
-     * Définit la valeur de la propriété base.
+     * D√©finit la valeur de la propri√©t√© base.
      * 
      * @param value
      *     allowed object is
@@ -105,7 +132,7 @@ public class SiteInfoType {
     }
 
     /**
-     * Obtient la valeur de la propriété generator.
+     * Obtient la valeur de la propri√©t√© generator.
      * 
      * @return
      *     possible object is
@@ -117,7 +144,7 @@ public class SiteInfoType {
     }
 
     /**
-     * Définit la valeur de la propriété generator.
+     * D√©finit la valeur de la propri√©t√© generator.
      * 
      * @param value
      *     allowed object is
@@ -129,7 +156,7 @@ public class SiteInfoType {
     }
 
     /**
-     * Obtient la valeur de la propriété case.
+     * Obtient la valeur de la propri√©t√© case.
      * 
      * @return
      *     possible object is
@@ -141,7 +168,7 @@ public class SiteInfoType {
     }
 
     /**
-     * Définit la valeur de la propriété case.
+     * D√©finit la valeur de la propri√©t√© case.
      * 
      * @param value
      *     allowed object is
@@ -153,7 +180,7 @@ public class SiteInfoType {
     }
 
     /**
-     * Obtient la valeur de la propriété namespaces.
+     * Obtient la valeur de la propri√©t√© namespaces.
      * 
      * @return
      *     possible object is
@@ -165,7 +192,7 @@ public class SiteInfoType {
     }
 
     /**
-     * Définit la valeur de la propriété namespaces.
+     * D√©finit la valeur de la propri√©t√© namespaces.
      * 
      * @param value
      *     allowed object is

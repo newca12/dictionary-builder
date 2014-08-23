@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.6 
+// Ce fichier a √©t√© g√©n√©r√© par l'impl√©mentation de r√©f√©rence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2013.02.24 à 10:33:56 PM CET 
+// Toute modification apport√©e √† ce fichier sera perdue lors de la recompilation du sch√©ma source. 
+// G√©n√©r√© le : 2014.08.23 √† 05:44:25 PM CEST 
 //
 
 
@@ -22,14 +22,14 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 /**
  * <p>Classe Java pour TextType complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de sch√©ma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="TextType">
  *   &lt;simpleContent>
  *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema>string">
  *       &lt;attribute ref="{http://www.w3.org/XML/1998/namespace}space default="preserve""/>
- *       &lt;attribute name="deleted" type="{http://www.mediawiki.org/xml/export-0.8/}DeletedFlagType" />
+ *       &lt;attribute name="deleted" type="{http://www.mediawiki.org/xml/export-0.9/}DeletedFlagType" />
  *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}NMTOKEN" />
  *       &lt;attribute name="bytes" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" />
  *     &lt;/extension>
@@ -61,7 +61,7 @@ public class TextType {
     protected BigInteger bytes;
 
     /**
-     * Obtient la valeur de la propriété value.
+     * Obtient la valeur de la propri√©t√© value.
      * 
      * @return
      *     possible object is
@@ -73,7 +73,7 @@ public class TextType {
     }
 
     /**
-     * Définit la valeur de la propriété value.
+     * D√©finit la valeur de la propri√©t√© value.
      * 
      * @param value
      *     allowed object is
@@ -85,7 +85,7 @@ public class TextType {
     }
 
     /**
-     * Obtient la valeur de la propriété space.
+     * Obtient la valeur de la propri√©t√© space.
      * 
      * @return
      *     possible object is
@@ -101,7 +101,7 @@ public class TextType {
     }
 
     /**
-     * Définit la valeur de la propriété space.
+     * D√©finit la valeur de la propri√©t√© space.
      * 
      * @param value
      *     allowed object is
@@ -113,7 +113,7 @@ public class TextType {
     }
 
     /**
-     * Obtient la valeur de la propriété deleted.
+     * Obtient la valeur de la propri√©t√© deleted.
      * 
      * @return
      *     possible object is
@@ -125,7 +125,7 @@ public class TextType {
     }
 
     /**
-     * Définit la valeur de la propriété deleted.
+     * D√©finit la valeur de la propri√©t√© deleted.
      * 
      * @param value
      *     allowed object is
@@ -137,7 +137,7 @@ public class TextType {
     }
 
     /**
-     * Obtient la valeur de la propriété id.
+     * Obtient la valeur de la propri√©t√© id.
      * 
      * @return
      *     possible object is
@@ -149,7 +149,7 @@ public class TextType {
     }
 
     /**
-     * Définit la valeur de la propriété id.
+     * D√©finit la valeur de la propri√©t√© id.
      * 
      * @param value
      *     allowed object is
@@ -161,7 +161,7 @@ public class TextType {
     }
 
     /**
-     * Obtient la valeur de la propriété bytes.
+     * Obtient la valeur de la propri√©t√© bytes.
      * 
      * @return
      *     possible object is
@@ -173,7 +173,7 @@ public class TextType {
     }
 
     /**
-     * Définit la valeur de la propriété bytes.
+     * D√©finit la valeur de la propri√©t√© bytes.
      * 
      * @param value
      *     allowed object is

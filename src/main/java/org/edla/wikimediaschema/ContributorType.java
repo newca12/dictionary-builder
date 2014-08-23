@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.6 
+// Ce fichier a √©t√© g√©n√©r√© par l'impl√©mentation de r√©f√©rence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2013.02.24 à 10:33:56 PM CET 
+// Toute modification apport√©e √† ce fichier sera perdue lors de la recompilation du sch√©ma source. 
+// G√©n√©r√© le : 2014.08.23 √† 05:44:25 PM CEST 
 //
 
 
@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java pour ContributorType complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de sch√©ma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="ContributorType">
@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger" minOccurs="0"/>
  *         &lt;element name="ip" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attribute name="deleted" type="{http://www.mediawiki.org/xml/export-0.8/}DeletedFlagType" />
+ *       &lt;attribute name="deleted" type="{http://www.mediawiki.org/xml/export-0.9/}DeletedFlagType" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -54,7 +54,7 @@ public class ContributorType {
     protected DeletedFlagType deleted;
 
     /**
-     * Obtient la valeur de la propriété username.
+     * Obtient la valeur de la propri√©t√© username.
      * 
      * @return
      *     possible object is
@@ -66,7 +66,7 @@ public class ContributorType {
     }
 
     /**
-     * Définit la valeur de la propriété username.
+     * D√©finit la valeur de la propri√©t√© username.
      * 
      * @param value
      *     allowed object is
@@ -78,7 +78,7 @@ public class ContributorType {
     }
 
     /**
-     * Obtient la valeur de la propriété id.
+     * Obtient la valeur de la propri√©t√© id.
      * 
      * @return
      *     possible object is
@@ -90,7 +90,7 @@ public class ContributorType {
     }
 
     /**
-     * Définit la valeur de la propriété id.
+     * D√©finit la valeur de la propri√©t√© id.
      * 
      * @param value
      *     allowed object is
@@ -102,7 +102,7 @@ public class ContributorType {
     }
 
     /**
-     * Obtient la valeur de la propriété ip.
+     * Obtient la valeur de la propri√©t√© ip.
      * 
      * @return
      *     possible object is
@@ -114,7 +114,7 @@ public class ContributorType {
     }
 
     /**
-     * Définit la valeur de la propriété ip.
+     * D√©finit la valeur de la propri√©t√© ip.
      * 
      * @param value
      *     allowed object is
@@ -126,7 +126,7 @@ public class ContributorType {
     }
 
     /**
-     * Obtient la valeur de la propriété deleted.
+     * Obtient la valeur de la propri√©t√© deleted.
      * 
      * @return
      *     possible object is
@@ -138,7 +138,7 @@ public class ContributorType {
     }
 
     /**
-     * Définit la valeur de la propriété deleted.
+     * D√©finit la valeur de la propri√©t√© deleted.
      * 
      * @param value
      *     allowed object is

@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.6 
+// Ce fichier a √©t√© g√©n√©r√© par l'impl√©mentation de r√©f√©rence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2013.02.24 à 10:33:56 PM CET 
+// Toute modification apport√©e √† ce fichier sera perdue lors de la recompilation du sch√©ma source. 
+// G√©n√©r√© le : 2014.08.23 √† 05:44:25 PM CEST 
 //
 
 
@@ -31,7 +31,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Mediawiki_QNAME = new QName("http://www.mediawiki.org/xml/export-0.8/", "mediawiki");
+    private final static QName _Mediawiki_QNAME = new QName("http://www.mediawiki.org/xml/export-0.9/", "mediawiki");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.edla.wikimediaschema
@@ -57,59 +57,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ContributorType }
+     * Create an instance of {@link LogTextType }
      * 
      */
-    public ContributorType createContributorType() {
-        return new ContributorType();
+    public LogTextType createLogTextType() {
+        return new LogTextType();
     }
 
     /**
-     * Create an instance of {@link TextType }
+     * Create an instance of {@link DiscussionThreadingInfo }
      * 
      */
-    public TextType createTextType() {
-        return new TextType();
+    public DiscussionThreadingInfo createDiscussionThreadingInfo() {
+        return new DiscussionThreadingInfo();
     }
 
     /**
-     * Create an instance of {@link LogParamsType }
+     * Create an instance of {@link SiteInfoType }
      * 
      */
-    public LogParamsType createLogParamsType() {
-        return new LogParamsType();
-    }
-
-    /**
-     * Create an instance of {@link RevisionType }
-     * 
-     */
-    public RevisionType createRevisionType() {
-        return new RevisionType();
-    }
-
-    /**
-     * Create an instance of {@link RedirectType }
-     * 
-     */
-    public RedirectType createRedirectType() {
-        return new RedirectType();
-    }
-
-    /**
-     * Create an instance of {@link CommentType }
-     * 
-     */
-    public CommentType createCommentType() {
-        return new CommentType();
-    }
-
-    /**
-     * Create an instance of {@link PageType }
-     * 
-     */
-    public PageType createPageType() {
-        return new PageType();
+    public SiteInfoType createSiteInfoType() {
+        return new SiteInfoType();
     }
 
     /**
@@ -129,27 +97,59 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LogTextType }
+     * Create an instance of {@link RedirectType }
      * 
      */
-    public LogTextType createLogTextType() {
-        return new LogTextType();
+    public RedirectType createRedirectType() {
+        return new RedirectType();
     }
 
     /**
-     * Create an instance of {@link SiteInfoType }
+     * Create an instance of {@link TextType }
      * 
      */
-    public SiteInfoType createSiteInfoType() {
-        return new SiteInfoType();
+    public TextType createTextType() {
+        return new TextType();
     }
 
     /**
-     * Create an instance of {@link DiscussionThreadingInfo }
+     * Create an instance of {@link CommentType }
      * 
      */
-    public DiscussionThreadingInfo createDiscussionThreadingInfo() {
-        return new DiscussionThreadingInfo();
+    public CommentType createCommentType() {
+        return new CommentType();
+    }
+
+    /**
+     * Create an instance of {@link ContributorType }
+     * 
+     */
+    public ContributorType createContributorType() {
+        return new ContributorType();
+    }
+
+    /**
+     * Create an instance of {@link LogParamsType }
+     * 
+     */
+    public LogParamsType createLogParamsType() {
+        return new LogParamsType();
+    }
+
+    /**
+     * Create an instance of {@link RevisionType }
+     * 
+     */
+    public RevisionType createRevisionType() {
+        return new RevisionType();
+    }
+
+    /**
+     * Create an instance of {@link PageType }
+     * 
+     */
+    public PageType createPageType() {
+        return new PageType();
     }
 
     /**
@@ -164,7 +164,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link MediaWikiType }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.mediawiki.org/xml/export-0.8/", name = "mediawiki")
+    @XmlElementDecl(namespace = "http://www.mediawiki.org/xml/export-0.9/", name = "mediawiki")
     public JAXBElement<MediaWikiType> createMediawiki(MediaWikiType value) {
         return new JAXBElement<MediaWikiType>(_Mediawiki_QNAME, MediaWikiType.class, null, value);
     }

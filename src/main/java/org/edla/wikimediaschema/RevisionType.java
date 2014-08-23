@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.6 
+// Ce fichier a √©t√© g√©n√©r√© par l'impl√©mentation de r√©f√©rence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2013.02.24 à 10:33:56 PM CET 
+// Toute modification apport√©e √† ce fichier sera perdue lors de la recompilation du sch√©ma source. 
+// G√©n√©r√© le : 2014.08.23 √† 05:44:25 PM CEST 
 //
 
 
@@ -20,7 +20,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 /**
  * <p>Classe Java pour RevisionType complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de sch√©ma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="RevisionType">
@@ -30,13 +30,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
  *         &lt;element name="parentid" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" minOccurs="0"/>
  *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
- *         &lt;element name="contributor" type="{http://www.mediawiki.org/xml/export-0.8/}ContributorType"/>
+ *         &lt;element name="contributor" type="{http://www.mediawiki.org/xml/export-0.9/}ContributorType"/>
  *         &lt;element name="minor" type="{http://www.w3.org/2001/XMLSchema}anyType" minOccurs="0"/>
- *         &lt;element name="comment" type="{http://www.mediawiki.org/xml/export-0.8/}CommentType" minOccurs="0"/>
- *         &lt;element name="text" type="{http://www.mediawiki.org/xml/export-0.8/}TextType"/>
+ *         &lt;element name="comment" type="{http://www.mediawiki.org/xml/export-0.9/}CommentType" minOccurs="0"/>
+ *         &lt;element name="text" type="{http://www.mediawiki.org/xml/export-0.9/}TextType"/>
  *         &lt;element name="sha1" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="model" type="{http://www.mediawiki.org/xml/export-0.8/}ContentModelType"/>
- *         &lt;element name="format" type="{http://www.mediawiki.org/xml/export-0.8/}ContentFormatType"/>
+ *         &lt;element name="model" type="{http://www.mediawiki.org/xml/export-0.9/}ContentModelType"/>
+ *         &lt;element name="format" type="{http://www.mediawiki.org/xml/export-0.9/}ContentFormatType"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -82,7 +82,7 @@ public class RevisionType {
     protected String format;
 
     /**
-     * Obtient la valeur de la propriété id.
+     * Obtient la valeur de la propri√©t√© id.
      * 
      * @return
      *     possible object is
@@ -94,7 +94,7 @@ public class RevisionType {
     }
 
     /**
-     * Définit la valeur de la propriété id.
+     * D√©finit la valeur de la propri√©t√© id.
      * 
      * @param value
      *     allowed object is
@@ -106,7 +106,7 @@ public class RevisionType {
     }
 
     /**
-     * Obtient la valeur de la propriété parentid.
+     * Obtient la valeur de la propri√©t√© parentid.
      * 
      * @return
      *     possible object is
@@ -118,7 +118,7 @@ public class RevisionType {
     }
 
     /**
-     * Définit la valeur de la propriété parentid.
+     * D√©finit la valeur de la propri√©t√© parentid.
      * 
      * @param value
      *     allowed object is
@@ -130,7 +130,7 @@ public class RevisionType {
     }
 
     /**
-     * Obtient la valeur de la propriété timestamp.
+     * Obtient la valeur de la propri√©t√© timestamp.
      * 
      * @return
      *     possible object is
@@ -142,7 +142,7 @@ public class RevisionType {
     }
 
     /**
-     * Définit la valeur de la propriété timestamp.
+     * D√©finit la valeur de la propri√©t√© timestamp.
      * 
      * @param value
      *     allowed object is
@@ -154,7 +154,7 @@ public class RevisionType {
     }
 
     /**
-     * Obtient la valeur de la propriété contributor.
+     * Obtient la valeur de la propri√©t√© contributor.
      * 
      * @return
      *     possible object is
@@ -166,7 +166,7 @@ public class RevisionType {
     }
 
     /**
-     * Définit la valeur de la propriété contributor.
+     * D√©finit la valeur de la propri√©t√© contributor.
      * 
      * @param value
      *     allowed object is
@@ -178,7 +178,7 @@ public class RevisionType {
     }
 
     /**
-     * Obtient la valeur de la propriété minor.
+     * Obtient la valeur de la propri√©t√© minor.
      * 
      * @return
      *     possible object is
@@ -190,7 +190,7 @@ public class RevisionType {
     }
 
     /**
-     * Définit la valeur de la propriété minor.
+     * D√©finit la valeur de la propri√©t√© minor.
      * 
      * @param value
      *     allowed object is
@@ -202,7 +202,7 @@ public class RevisionType {
     }
 
     /**
-     * Obtient la valeur de la propriété comment.
+     * Obtient la valeur de la propri√©t√© comment.
      * 
      * @return
      *     possible object is
@@ -214,7 +214,7 @@ public class RevisionType {
     }
 
     /**
-     * Définit la valeur de la propriété comment.
+     * D√©finit la valeur de la propri√©t√© comment.
      * 
      * @param value
      *     allowed object is
@@ -226,7 +226,7 @@ public class RevisionType {
     }
 
     /**
-     * Obtient la valeur de la propriété text.
+     * Obtient la valeur de la propri√©t√© text.
      * 
      * @return
      *     possible object is
@@ -238,7 +238,7 @@ public class RevisionType {
     }
 
     /**
-     * Définit la valeur de la propriété text.
+     * D√©finit la valeur de la propri√©t√© text.
      * 
      * @param value
      *     allowed object is
@@ -250,7 +250,7 @@ public class RevisionType {
     }
 
     /**
-     * Obtient la valeur de la propriété sha1.
+     * Obtient la valeur de la propri√©t√© sha1.
      * 
      * @return
      *     possible object is
@@ -262,7 +262,7 @@ public class RevisionType {
     }
 
     /**
-     * Définit la valeur de la propriété sha1.
+     * D√©finit la valeur de la propri√©t√© sha1.
      * 
      * @param value
      *     allowed object is
@@ -274,7 +274,7 @@ public class RevisionType {
     }
 
     /**
-     * Obtient la valeur de la propriété model.
+     * Obtient la valeur de la propri√©t√© model.
      * 
      * @return
      *     possible object is
@@ -286,7 +286,7 @@ public class RevisionType {
     }
 
     /**
-     * Définit la valeur de la propriété model.
+     * D√©finit la valeur de la propri√©t√© model.
      * 
      * @param value
      *     allowed object is
@@ -298,7 +298,7 @@ public class RevisionType {
     }
 
     /**
-     * Obtient la valeur de la propriété format.
+     * Obtient la valeur de la propri√©t√© format.
      * 
      * @return
      *     possible object is
@@ -310,7 +310,7 @@ public class RevisionType {
     }
 
     /**
-     * Définit la valeur de la propriété format.
+     * D√©finit la valeur de la propri√©t√© format.
      * 
      * @param value
      *     allowed object is

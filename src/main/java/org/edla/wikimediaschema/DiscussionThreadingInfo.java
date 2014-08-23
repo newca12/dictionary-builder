@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.6 
+// Ce fichier a √©t√© g√©n√©r√© par l'impl√©mentation de r√©f√©rence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2013.02.24 à 10:33:56 PM CET 
+// Toute modification apport√©e √† ce fichier sera perdue lors de la recompilation du sch√©ma source. 
+// G√©n√©r√© le : 2014.08.23 √† 05:44:25 PM CEST 
 //
 
 
@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java pour DiscussionThreadingInfo complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de sch√©ma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="DiscussionThreadingInfo">
@@ -76,7 +76,7 @@ public class DiscussionThreadingInfo {
     protected String threadType;
 
     /**
-     * Obtient la valeur de la propriété threadSubject.
+     * Obtient la valeur de la propri√©t√© threadSubject.
      * 
      * @return
      *     possible object is
@@ -88,7 +88,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Définit la valeur de la propriété threadSubject.
+     * D√©finit la valeur de la propri√©t√© threadSubject.
      * 
      * @param value
      *     allowed object is
@@ -100,7 +100,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Obtient la valeur de la propriété threadParent.
+     * Obtient la valeur de la propri√©t√© threadParent.
      * 
      * @return
      *     possible object is
@@ -112,7 +112,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Définit la valeur de la propriété threadParent.
+     * D√©finit la valeur de la propri√©t√© threadParent.
      * 
      * @param value
      *     allowed object is
@@ -124,7 +124,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Obtient la valeur de la propriété threadAncestor.
+     * Obtient la valeur de la propri√©t√© threadAncestor.
      * 
      * @return
      *     possible object is
@@ -136,7 +136,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Définit la valeur de la propriété threadAncestor.
+     * D√©finit la valeur de la propri√©t√© threadAncestor.
      * 
      * @param value
      *     allowed object is
@@ -148,7 +148,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Obtient la valeur de la propriété threadPage.
+     * Obtient la valeur de la propri√©t√© threadPage.
      * 
      * @return
      *     possible object is
@@ -160,7 +160,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Définit la valeur de la propriété threadPage.
+     * D√©finit la valeur de la propri√©t√© threadPage.
      * 
      * @param value
      *     allowed object is
@@ -172,7 +172,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Obtient la valeur de la propriété threadID.
+     * Obtient la valeur de la propri√©t√© threadID.
      * 
      * @return
      *     possible object is
@@ -184,7 +184,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Définit la valeur de la propriété threadID.
+     * D√©finit la valeur de la propri√©t√© threadID.
      * 
      * @param value
      *     allowed object is
@@ -196,7 +196,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Obtient la valeur de la propriété threadAuthor.
+     * Obtient la valeur de la propri√©t√© threadAuthor.
      * 
      * @return
      *     possible object is
@@ -208,7 +208,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Définit la valeur de la propriété threadAuthor.
+     * D√©finit la valeur de la propri√©t√© threadAuthor.
      * 
      * @param value
      *     allowed object is
@@ -220,7 +220,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Obtient la valeur de la propriété threadEditStatus.
+     * Obtient la valeur de la propri√©t√© threadEditStatus.
      * 
      * @return
      *     possible object is
@@ -232,7 +232,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Définit la valeur de la propriété threadEditStatus.
+     * D√©finit la valeur de la propri√©t√© threadEditStatus.
      * 
      * @param value
      *     allowed object is
@@ -244,7 +244,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Obtient la valeur de la propriété threadType.
+     * Obtient la valeur de la propri√©t√© threadType.
      * 
      * @return
      *     possible object is
@@ -256,7 +256,7 @@ public class DiscussionThreadingInfo {
     }
 
     /**
-     * Définit la valeur de la propriété threadType.
+     * D√©finit la valeur de la propri√©t√© threadType.
      * 
      * @param value
      *     allowed object is

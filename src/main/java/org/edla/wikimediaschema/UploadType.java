@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.6 
+// Ce fichier a √©t√© g√©n√©r√© par l'impl√©mentation de r√©f√©rence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2013.02.24 à 10:33:56 PM CET 
+// Toute modification apport√©e √† ce fichier sera perdue lors de la recompilation du sch√©ma source. 
+// G√©n√©r√© le : 2014.08.23 √† 05:44:25 PM CEST 
 //
 
 
@@ -20,7 +20,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 /**
  * <p>Classe Java pour UploadType complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de sch√©ma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="UploadType">
@@ -28,7 +28,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
- *         &lt;element name="contributor" type="{http://www.mediawiki.org/xml/export-0.8/}ContributorType"/>
+ *         &lt;element name="contributor" type="{http://www.mediawiki.org/xml/export-0.9/}ContributorType"/>
  *         &lt;element name="comment" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="filename" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="src" type="{http://www.w3.org/2001/XMLSchema}anyURI"/>
@@ -68,7 +68,7 @@ public class UploadType {
     protected BigInteger size;
 
     /**
-     * Obtient la valeur de la propriété timestamp.
+     * Obtient la valeur de la propri√©t√© timestamp.
      * 
      * @return
      *     possible object is
@@ -80,7 +80,7 @@ public class UploadType {
     }
 
     /**
-     * Définit la valeur de la propriété timestamp.
+     * D√©finit la valeur de la propri√©t√© timestamp.
      * 
      * @param value
      *     allowed object is
@@ -92,7 +92,7 @@ public class UploadType {
     }
 
     /**
-     * Obtient la valeur de la propriété contributor.
+     * Obtient la valeur de la propri√©t√© contributor.
      * 
      * @return
      *     possible object is
@@ -104,7 +104,7 @@ public class UploadType {
     }
 
     /**
-     * Définit la valeur de la propriété contributor.
+     * D√©finit la valeur de la propri√©t√© contributor.
      * 
      * @param value
      *     allowed object is
@@ -116,7 +116,7 @@ public class UploadType {
     }
 
     /**
-     * Obtient la valeur de la propriété comment.
+     * Obtient la valeur de la propri√©t√© comment.
      * 
      * @return
      *     possible object is
@@ -128,7 +128,7 @@ public class UploadType {
     }
 
     /**
-     * Définit la valeur de la propriété comment.
+     * D√©finit la valeur de la propri√©t√© comment.
      * 
      * @param value
      *     allowed object is
@@ -140,7 +140,7 @@ public class UploadType {
     }
 
     /**
-     * Obtient la valeur de la propriété filename.
+     * Obtient la valeur de la propri√©t√© filename.
      * 
      * @return
      *     possible object is
@@ -152,7 +152,7 @@ public class UploadType {
     }
 
     /**
-     * Définit la valeur de la propriété filename.
+     * D√©finit la valeur de la propri√©t√© filename.
      * 
      * @param value
      *     allowed object is
@@ -164,7 +164,7 @@ public class UploadType {
     }
 
     /**
-     * Obtient la valeur de la propriété src.
+     * Obtient la valeur de la propri√©t√© src.
      * 
      * @return
      *     possible object is
@@ -176,7 +176,7 @@ public class UploadType {
     }
 
     /**
-     * Définit la valeur de la propriété src.
+     * D√©finit la valeur de la propri√©t√© src.
      * 
      * @param value
      *     allowed object is
@@ -188,7 +188,7 @@ public class UploadType {
     }
 
     /**
-     * Obtient la valeur de la propriété size.
+     * Obtient la valeur de la propri√©t√© size.
      * 
      * @return
      *     possible object is
@@ -200,7 +200,7 @@ public class UploadType {
     }
 
     /**
-     * Définit la valeur de la propriété size.
+     * D√©finit la valeur de la propri√©t√© size.
      * 
      * @param value
      *     allowed object is

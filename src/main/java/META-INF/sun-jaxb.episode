@@ -2,13 +2,13 @@
 <bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
   <!--
 
-Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.6 
+Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
 Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-Généré le : 2013.02.24 à 10:33:56 PM CET 
+Généré le : 2014.08.23 à 05:44:25 PM CEST 
 
   -->
-  <bindings scd="x-schema::tns" xmlns:tns="http://www.mediawiki.org/xml/export-0.8/">
+  <bindings scd="x-schema::tns" xmlns:tns="http://www.mediawiki.org/xml/export-0.9/">
     <schemaBindings map="false">
       <package name="org.edla.wikimediaschema"/>
     </schemaBindings>
@@ -18,26 +18,14 @@ Généré le : 2013.02.24 à 10:33:56 PM CET
     <bindings scd="~tns:NamespacesType">
       <class ref="org.edla.wikimediaschema.NamespacesType"/>
     </bindings>
-    <bindings scd="~tns:ContributorType">
-      <class ref="org.edla.wikimediaschema.ContributorType"/>
+    <bindings scd="~tns:LogTextType">
+      <class ref="org.edla.wikimediaschema.LogTextType"/>
     </bindings>
-    <bindings scd="~tns:TextType">
-      <class ref="org.edla.wikimediaschema.TextType"/>
+    <bindings scd="~tns:DiscussionThreadingInfo">
+      <class ref="org.edla.wikimediaschema.DiscussionThreadingInfo"/>
     </bindings>
-    <bindings scd="~tns:LogParamsType">
-      <class ref="org.edla.wikimediaschema.LogParamsType"/>
-    </bindings>
-    <bindings scd="~tns:RevisionType">
-      <class ref="org.edla.wikimediaschema.RevisionType"/>
-    </bindings>
-    <bindings scd="~tns:RedirectType">
-      <class ref="org.edla.wikimediaschema.RedirectType"/>
-    </bindings>
-    <bindings scd="~tns:CommentType">
-      <class ref="org.edla.wikimediaschema.CommentType"/>
-    </bindings>
-    <bindings scd="~tns:PageType">
-      <class ref="org.edla.wikimediaschema.PageType"/>
+    <bindings scd="~tns:SiteInfoType">
+      <class ref="org.edla.wikimediaschema.SiteInfoType"/>
     </bindings>
     <bindings scd="~tns:UploadType">
       <class ref="org.edla.wikimediaschema.UploadType"/>
@@ -45,14 +33,26 @@ Généré le : 2013.02.24 à 10:33:56 PM CET
     <bindings scd="~tns:NamespaceType">
       <class ref="org.edla.wikimediaschema.NamespaceType"/>
     </bindings>
-    <bindings scd="~tns:LogTextType">
-      <class ref="org.edla.wikimediaschema.LogTextType"/>
+    <bindings scd="~tns:RedirectType">
+      <class ref="org.edla.wikimediaschema.RedirectType"/>
     </bindings>
-    <bindings scd="~tns:SiteInfoType">
-      <class ref="org.edla.wikimediaschema.SiteInfoType"/>
+    <bindings scd="~tns:TextType">
+      <class ref="org.edla.wikimediaschema.TextType"/>
     </bindings>
-    <bindings scd="~tns:DiscussionThreadingInfo">
-      <class ref="org.edla.wikimediaschema.DiscussionThreadingInfo"/>
+    <bindings scd="~tns:CommentType">
+      <class ref="org.edla.wikimediaschema.CommentType"/>
+    </bindings>
+    <bindings scd="~tns:ContributorType">
+      <class ref="org.edla.wikimediaschema.ContributorType"/>
+    </bindings>
+    <bindings scd="~tns:LogParamsType">
+      <class ref="org.edla.wikimediaschema.LogParamsType"/>
+    </bindings>
+    <bindings scd="~tns:RevisionType">
+      <class ref="org.edla.wikimediaschema.RevisionType"/>
+    </bindings>
+    <bindings scd="~tns:PageType">
+      <class ref="org.edla.wikimediaschema.PageType"/>
     </bindings>
     <bindings scd="~tns:LogItemType">
       <class ref="org.edla.wikimediaschema.LogItemType"/>
