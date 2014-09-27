@@ -12,7 +12,7 @@ The purpose of [edla.org](http://www.edla.org) is to promote the state of the ar
 1. Get a fresh wiktionary backup   
 Choose your favorite language and download the dump containing the current versions of article content [here](http://download.wikimedia.org/backup-index.html)  
 Example for the english dump:
-http://dumps.wikimedia.org/enwiktionary/20140819/enwiktionary-20140819-pages-articles-multistream.xml.bz2
+http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles-multistream.xml.bz2
 
 2. Uncompress the fresh downloaded dump somewhere
 (Take care you need up to 5 Gigas of free disk space)
