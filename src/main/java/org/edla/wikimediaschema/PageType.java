@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2015.03.04 à 11:33:32 PM CET 
+// Généré le : 2015.03.05 à 12:17:00 AM CET 
 //
 
 
@@ -32,13 +32,13 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="ns" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger"/&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/&gt;
- *         &lt;element name="redirect" type="{http://www.mediawiki.org/xml/export-0.9/}RedirectType" minOccurs="0"/&gt;
+ *         &lt;element name="redirect" type="{http://www.mediawiki.org/xml/export-0.10/}RedirectType" minOccurs="0"/&gt;
  *         &lt;element name="restrictions" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;choice maxOccurs="unbounded" minOccurs="0"&gt;
- *           &lt;element name="revision" type="{http://www.mediawiki.org/xml/export-0.9/}RevisionType"/&gt;
- *           &lt;element name="upload" type="{http://www.mediawiki.org/xml/export-0.9/}UploadType"/&gt;
+ *           &lt;element name="revision" type="{http://www.mediawiki.org/xml/export-0.10/}RevisionType"/&gt;
+ *           &lt;element name="upload" type="{http://www.mediawiki.org/xml/export-0.10/}UploadType"/&gt;
  *         &lt;/choice&gt;
- *         &lt;element name="discussionthreadinginfo" type="{http://www.mediawiki.org/xml/export-0.9/}DiscussionThreadingInfo" minOccurs="0"/&gt;
+ *         &lt;element name="discussionthreadinginfo" type="{http://www.mediawiki.org/xml/export-0.10/}DiscussionThreadingInfo" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;

@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2015.03.04 à 11:33:32 PM CET 
+// Généré le : 2015.03.05 à 12:17:00 AM CET 
 //
 
 
@@ -30,13 +30,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/&gt;
  *         &lt;element name="parentid" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" minOccurs="0"/&gt;
  *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
- *         &lt;element name="contributor" type="{http://www.mediawiki.org/xml/export-0.9/}ContributorType"/&gt;
+ *         &lt;element name="contributor" type="{http://www.mediawiki.org/xml/export-0.10/}ContributorType"/&gt;
  *         &lt;element name="minor" type="{http://www.w3.org/2001/XMLSchema}anyType" minOccurs="0"/&gt;
- *         &lt;element name="comment" type="{http://www.mediawiki.org/xml/export-0.9/}CommentType" minOccurs="0"/&gt;
- *         &lt;element name="text" type="{http://www.mediawiki.org/xml/export-0.9/}TextType"/&gt;
+ *         &lt;element name="comment" type="{http://www.mediawiki.org/xml/export-0.10/}CommentType" minOccurs="0"/&gt;
+ *         &lt;element name="model" type="{http://www.mediawiki.org/xml/export-0.10/}ContentModelType"/&gt;
+ *         &lt;element name="format" type="{http://www.mediawiki.org/xml/export-0.10/}ContentFormatType"/&gt;
+ *         &lt;element name="text" type="{http://www.mediawiki.org/xml/export-0.10/}TextType"/&gt;
  *         &lt;element name="sha1" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="model" type="{http://www.mediawiki.org/xml/export-0.9/}ContentModelType"/&gt;
- *         &lt;element name="format" type="{http://www.mediawiki.org/xml/export-0.9/}ContentFormatType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -53,10 +53,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "contributor",
     "minor",
     "comment",
-    "text",
-    "sha1",
     "model",
-    "format"
+    "format",
+    "text",
+    "sha1"
 })
 public class RevisionType {
 
@@ -73,13 +73,13 @@ public class RevisionType {
     protected Object minor;
     protected CommentType comment;
     @XmlElement(required = true)
-    protected TextType text;
-    @XmlElement(required = true)
-    protected String sha1;
-    @XmlElement(required = true)
     protected String model;
     @XmlElement(required = true)
     protected String format;
+    @XmlElement(required = true)
+    protected TextType text;
+    @XmlElement(required = true)
+    protected String sha1;
 
     /**
      * Obtient la valeur de la propriété id.
@@ -226,54 +226,6 @@ public class RevisionType {
     }
 
     /**
-     * Obtient la valeur de la propriété text.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TextType }
-     *     
-     */
-    public TextType getText() {
-        return text;
-    }
-
-    /**
-     * Définit la valeur de la propriété text.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TextType }
-     *     
-     */
-    public void setText(TextType value) {
-        this.text = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété sha1.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSha1() {
-        return sha1;
-    }
-
-    /**
-     * Définit la valeur de la propriété sha1.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSha1(String value) {
-        this.sha1 = value;
-    }
-
-    /**
      * Obtient la valeur de la propriété model.
      * 
      * @return
@@ -319,6 +271,54 @@ public class RevisionType {
      */
     public void setFormat(String value) {
         this.format = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété text.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TextType }
+     *     
+     */
+    public TextType getText() {
+        return text;
+    }
+
+    /**
+     * Définit la valeur de la propriété text.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TextType }
+     *     
+     */
+    public void setText(TextType value) {
+        this.text = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété sha1.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSha1() {
+        return sha1;
+    }
+
+    /**
+     * Définit la valeur de la propriété sha1.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSha1(String value) {
+        this.sha1 = value;
     }
 
 }

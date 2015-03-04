@@ -30,15 +30,17 @@
 
 	Version 0.9 adds the database name to the site information.
 
+	Version 0.10 moved the <model> and <format> tags before the <text> tag.
+
 	The canonical URL to the schema document is:
-	http://www.mediawiki.org/xml/export-0.9.xsd
+	http://www.mediawiki.org/xml/export-0.10.xsd
 
 	Use the namespace:
-	http://www.mediawiki.org/xml/export-0.9/
+	http://www.mediawiki.org/xml/export-0.10/
 -->
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-		xmlns:mw="http://www.mediawiki.org/xml/export-0.9/"
-		targetNamespace="http://www.mediawiki.org/xml/export-0.9/"
+		xmlns:mw="http://www.mediawiki.org/xml/export-0.10/"
+		targetNamespace="http://www.mediawiki.org/xml/export-0.10/"
 		elementFormDefault="qualified">
 
 	<annotation>
@@ -183,10 +185,10 @@
 			<element name="contributor" type="mw:ContributorType" />
 			<element name="minor" minOccurs="0" maxOccurs="1" />
 			<element name="comment" type="mw:CommentType" minOccurs="0" maxOccurs="1" />
-			<element name="text" type="mw:TextType" />
-			<element name="sha1" type="string" />
 			<element name="model" type="mw:ContentModelType" />
 			<element name="format" type="mw:ContentFormatType" />
+			<element name="text" type="mw:TextType" />
+			<element name="sha1" type="string" />
 		</sequence>
 	</complexType>
 

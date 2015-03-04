@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2015.03.04 à 11:33:32 PM CET 
+// Généré le : 2015.03.05 à 12:17:00 AM CET 
 //
 
 
@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlValue;
  *   &lt;simpleContent&gt;
  *     &lt;extension base="&lt;http://www.w3.org/2001/XMLSchema&gt;string"&gt;
  *       &lt;attribute name="key" type="{http://www.w3.org/2001/XMLSchema}integer" /&gt;
- *       &lt;attribute name="case" type="{http://www.mediawiki.org/xml/export-0.9/}CaseType" /&gt;
+ *       &lt;attribute name="case" type="{http://www.mediawiki.org/xml/export-0.10/}CaseType" /&gt;
  *     &lt;/extension&gt;
  *   &lt;/simpleContent&gt;
  * &lt;/complexType&gt;

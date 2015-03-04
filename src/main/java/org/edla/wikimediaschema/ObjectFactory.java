@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2015.03.04 à 11:33:32 PM CET 
+// Généré le : 2015.03.05 à 12:17:00 AM CET 
 //
 
 
@@ -31,7 +31,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Mediawiki_QNAME = new QName("http://www.mediawiki.org/xml/export-0.9/", "mediawiki");
+    private final static QName _Mediawiki_QNAME = new QName("http://www.mediawiki.org/xml/export-0.10/", "mediawiki");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.edla.wikimediaschema
@@ -164,7 +164,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link MediaWikiType }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.mediawiki.org/xml/export-0.9/", name = "mediawiki")
+    @XmlElementDecl(namespace = "http://www.mediawiki.org/xml/export-0.10/", name = "mediawiki")
     public JAXBElement<MediaWikiType> createMediawiki(MediaWikiType value) {
         return new JAXBElement<MediaWikiType>(_Mediawiki_QNAME, MediaWikiType.class, null, value);
     }

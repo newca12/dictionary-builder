@@ -2,7 +2,7 @@
 // Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2015.03.04 à 11:33:32 PM CET 
+// Généré le : 2015.03.05 à 12:17:00 AM CET 
 //
 
 
@@ -29,13 +29,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence&gt;
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/&gt;
  *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
- *         &lt;element name="contributor" type="{http://www.mediawiki.org/xml/export-0.9/}ContributorType"/&gt;
- *         &lt;element name="comment" type="{http://www.mediawiki.org/xml/export-0.9/}CommentType" minOccurs="0"/&gt;
+ *         &lt;element name="contributor" type="{http://www.mediawiki.org/xml/export-0.10/}ContributorType"/&gt;
+ *         &lt;element name="comment" type="{http://www.mediawiki.org/xml/export-0.10/}CommentType" minOccurs="0"/&gt;
  *         &lt;element name="type" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="action" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="text" type="{http://www.mediawiki.org/xml/export-0.9/}LogTextType" minOccurs="0"/&gt;
+ *         &lt;element name="text" type="{http://www.mediawiki.org/xml/export-0.10/}LogTextType" minOccurs="0"/&gt;
  *         &lt;element name="logtitle" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="params" type="{http://www.mediawiki.org/xml/export-0.9/}LogParamsType" minOccurs="0"/&gt;
+ *         &lt;element name="params" type="{http://www.mediawiki.org/xml/export-0.10/}LogParamsType" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
