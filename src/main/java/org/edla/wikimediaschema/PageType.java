@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
+// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2014.08.23 à 05:44:25 PM CEST 
+// Généré le : 2015.03.04 à 11:33:32 PM CET 
 //
 
 
@@ -25,24 +25,24 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="PageType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="ns" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger"/>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
- *         &lt;element name="redirect" type="{http://www.mediawiki.org/xml/export-0.9/}RedirectType" minOccurs="0"/>
- *         &lt;element name="restrictions" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;choice maxOccurs="unbounded" minOccurs="0">
- *           &lt;element name="revision" type="{http://www.mediawiki.org/xml/export-0.9/}RevisionType"/>
- *           &lt;element name="upload" type="{http://www.mediawiki.org/xml/export-0.9/}UploadType"/>
- *         &lt;/choice>
- *         &lt;element name="discussionthreadinginfo" type="{http://www.mediawiki.org/xml/export-0.9/}DiscussionThreadingInfo" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="PageType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="ns" type="{http://www.w3.org/2001/XMLSchema}nonNegativeInteger"/&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/&gt;
+ *         &lt;element name="redirect" type="{http://www.mediawiki.org/xml/export-0.9/}RedirectType" minOccurs="0"/&gt;
+ *         &lt;element name="restrictions" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;choice maxOccurs="unbounded" minOccurs="0"&gt;
+ *           &lt;element name="revision" type="{http://www.mediawiki.org/xml/export-0.9/}RevisionType"/&gt;
+ *           &lt;element name="upload" type="{http://www.mediawiki.org/xml/export-0.9/}UploadType"/&gt;
+ *         &lt;/choice&gt;
+ *         &lt;element name="discussionthreadinginfo" type="{http://www.mediawiki.org/xml/export-0.9/}DiscussionThreadingInfo" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 

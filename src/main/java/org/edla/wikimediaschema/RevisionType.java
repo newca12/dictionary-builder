@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
+// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2014.08.23 à 05:44:25 PM CEST 
+// Généré le : 2015.03.04 à 11:33:32 PM CET 
 //
 
 
@@ -23,24 +23,24 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="RevisionType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/>
- *         &lt;element name="parentid" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" minOccurs="0"/>
- *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
- *         &lt;element name="contributor" type="{http://www.mediawiki.org/xml/export-0.9/}ContributorType"/>
- *         &lt;element name="minor" type="{http://www.w3.org/2001/XMLSchema}anyType" minOccurs="0"/>
- *         &lt;element name="comment" type="{http://www.mediawiki.org/xml/export-0.9/}CommentType" minOccurs="0"/>
- *         &lt;element name="text" type="{http://www.mediawiki.org/xml/export-0.9/}TextType"/>
- *         &lt;element name="sha1" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="model" type="{http://www.mediawiki.org/xml/export-0.9/}ContentModelType"/>
- *         &lt;element name="format" type="{http://www.mediawiki.org/xml/export-0.9/}ContentFormatType"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="RevisionType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}positiveInteger"/&gt;
+ *         &lt;element name="parentid" type="{http://www.w3.org/2001/XMLSchema}positiveInteger" minOccurs="0"/&gt;
+ *         &lt;element name="timestamp" type="{http://www.w3.org/2001/XMLSchema}dateTime"/&gt;
+ *         &lt;element name="contributor" type="{http://www.mediawiki.org/xml/export-0.9/}ContributorType"/&gt;
+ *         &lt;element name="minor" type="{http://www.w3.org/2001/XMLSchema}anyType" minOccurs="0"/&gt;
+ *         &lt;element name="comment" type="{http://www.mediawiki.org/xml/export-0.9/}CommentType" minOccurs="0"/&gt;
+ *         &lt;element name="text" type="{http://www.mediawiki.org/xml/export-0.9/}TextType"/&gt;
+ *         &lt;element name="sha1" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="model" type="{http://www.mediawiki.org/xml/export-0.9/}ContentModelType"/&gt;
+ *         &lt;element name="format" type="{http://www.mediawiki.org/xml/export-0.9/}ContentFormatType"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 

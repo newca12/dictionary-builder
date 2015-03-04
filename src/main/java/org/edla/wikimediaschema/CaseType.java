@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
+// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2014.08.23 à 05:44:25 PM CEST 
+// Généré le : 2015.03.04 à 11:33:32 PM CET 
 //
 
 
@@ -19,13 +19,13 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * <p>
  * <pre>
- * &lt;simpleType name="CaseType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}NMTOKEN">
- *     &lt;enumeration value="first-letter"/>
- *     &lt;enumeration value="case-sensitive"/>
- *     &lt;enumeration value="case-insensitive"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
+ * &lt;simpleType name="CaseType"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}NMTOKEN"&gt;
+ *     &lt;enumeration value="first-letter"/&gt;
+ *     &lt;enumeration value="case-sensitive"/&gt;
+ *     &lt;enumeration value="case-insensitive"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
  * </pre>
  * 
  */

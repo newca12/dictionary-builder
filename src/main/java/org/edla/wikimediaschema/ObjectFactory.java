@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
+// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2014.08.23 à 05:44:25 PM CEST 
+// Généré le : 2015.03.04 à 11:33:32 PM CET 
 //
 
 
@@ -49,30 +49,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link NamespacesType }
-     * 
-     */
-    public NamespacesType createNamespacesType() {
-        return new NamespacesType();
-    }
-
-    /**
-     * Create an instance of {@link LogTextType }
-     * 
-     */
-    public LogTextType createLogTextType() {
-        return new LogTextType();
-    }
-
-    /**
-     * Create an instance of {@link DiscussionThreadingInfo }
-     * 
-     */
-    public DiscussionThreadingInfo createDiscussionThreadingInfo() {
-        return new DiscussionThreadingInfo();
-    }
-
-    /**
      * Create an instance of {@link SiteInfoType }
      * 
      */
@@ -81,11 +57,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UploadType }
+     * Create an instance of {@link NamespacesType }
      * 
      */
-    public UploadType createUploadType() {
-        return new UploadType();
+    public NamespacesType createNamespacesType() {
+        return new NamespacesType();
     }
 
     /**
@@ -105,35 +81,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TextType }
+     * Create an instance of {@link PageType }
      * 
      */
-    public TextType createTextType() {
-        return new TextType();
-    }
-
-    /**
-     * Create an instance of {@link CommentType }
-     * 
-     */
-    public CommentType createCommentType() {
-        return new CommentType();
-    }
-
-    /**
-     * Create an instance of {@link ContributorType }
-     * 
-     */
-    public ContributorType createContributorType() {
-        return new ContributorType();
-    }
-
-    /**
-     * Create an instance of {@link LogParamsType }
-     * 
-     */
-    public LogParamsType createLogParamsType() {
-        return new LogParamsType();
+    public PageType createPageType() {
+        return new PageType();
     }
 
     /**
@@ -145,19 +97,67 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PageType }
-     * 
-     */
-    public PageType createPageType() {
-        return new PageType();
-    }
-
-    /**
      * Create an instance of {@link LogItemType }
      * 
      */
     public LogItemType createLogItemType() {
         return new LogItemType();
+    }
+
+    /**
+     * Create an instance of {@link CommentType }
+     * 
+     */
+    public CommentType createCommentType() {
+        return new CommentType();
+    }
+
+    /**
+     * Create an instance of {@link TextType }
+     * 
+     */
+    public TextType createTextType() {
+        return new TextType();
+    }
+
+    /**
+     * Create an instance of {@link LogTextType }
+     * 
+     */
+    public LogTextType createLogTextType() {
+        return new LogTextType();
+    }
+
+    /**
+     * Create an instance of {@link LogParamsType }
+     * 
+     */
+    public LogParamsType createLogParamsType() {
+        return new LogParamsType();
+    }
+
+    /**
+     * Create an instance of {@link ContributorType }
+     * 
+     */
+    public ContributorType createContributorType() {
+        return new ContributorType();
+    }
+
+    /**
+     * Create an instance of {@link UploadType }
+     * 
+     */
+    public UploadType createUploadType() {
+        return new UploadType();
+    }
+
+    /**
+     * Create an instance of {@link DiscussionThreadingInfo }
+     * 
+     */
+    public DiscussionThreadingInfo createDiscussionThreadingInfo() {
+        return new DiscussionThreadingInfo();
     }
 
     /**

@@ -2,10 +2,10 @@
 <bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
   <!--
 
-Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
+Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-Généré le : 2014.08.23 à 05:44:25 PM CEST 
+Généré le : 2015.03.04 à 11:33:32 PM CET 
 
   -->
   <bindings scd="x-schema::tns" xmlns:tns="http://www.mediawiki.org/xml/export-0.9/">
@@ -15,20 +15,11 @@ Généré le : 2014.08.23 à 05:44:25 PM CEST
     <bindings scd="~tns:MediaWikiType">
       <class ref="org.edla.wikimediaschema.MediaWikiType"/>
     </bindings>
-    <bindings scd="~tns:NamespacesType">
-      <class ref="org.edla.wikimediaschema.NamespacesType"/>
-    </bindings>
-    <bindings scd="~tns:LogTextType">
-      <class ref="org.edla.wikimediaschema.LogTextType"/>
-    </bindings>
-    <bindings scd="~tns:DiscussionThreadingInfo">
-      <class ref="org.edla.wikimediaschema.DiscussionThreadingInfo"/>
-    </bindings>
     <bindings scd="~tns:SiteInfoType">
       <class ref="org.edla.wikimediaschema.SiteInfoType"/>
     </bindings>
-    <bindings scd="~tns:UploadType">
-      <class ref="org.edla.wikimediaschema.UploadType"/>
+    <bindings scd="~tns:NamespacesType">
+      <class ref="org.edla.wikimediaschema.NamespacesType"/>
     </bindings>
     <bindings scd="~tns:NamespaceType">
       <class ref="org.edla.wikimediaschema.NamespaceType"/>
@@ -36,26 +27,35 @@ Généré le : 2014.08.23 à 05:44:25 PM CEST
     <bindings scd="~tns:RedirectType">
       <class ref="org.edla.wikimediaschema.RedirectType"/>
     </bindings>
-    <bindings scd="~tns:TextType">
-      <class ref="org.edla.wikimediaschema.TextType"/>
-    </bindings>
-    <bindings scd="~tns:CommentType">
-      <class ref="org.edla.wikimediaschema.CommentType"/>
-    </bindings>
-    <bindings scd="~tns:ContributorType">
-      <class ref="org.edla.wikimediaschema.ContributorType"/>
-    </bindings>
-    <bindings scd="~tns:LogParamsType">
-      <class ref="org.edla.wikimediaschema.LogParamsType"/>
+    <bindings scd="~tns:PageType">
+      <class ref="org.edla.wikimediaschema.PageType"/>
     </bindings>
     <bindings scd="~tns:RevisionType">
       <class ref="org.edla.wikimediaschema.RevisionType"/>
     </bindings>
-    <bindings scd="~tns:PageType">
-      <class ref="org.edla.wikimediaschema.PageType"/>
-    </bindings>
     <bindings scd="~tns:LogItemType">
       <class ref="org.edla.wikimediaschema.LogItemType"/>
+    </bindings>
+    <bindings scd="~tns:CommentType">
+      <class ref="org.edla.wikimediaschema.CommentType"/>
+    </bindings>
+    <bindings scd="~tns:TextType">
+      <class ref="org.edla.wikimediaschema.TextType"/>
+    </bindings>
+    <bindings scd="~tns:LogTextType">
+      <class ref="org.edla.wikimediaschema.LogTextType"/>
+    </bindings>
+    <bindings scd="~tns:LogParamsType">
+      <class ref="org.edla.wikimediaschema.LogParamsType"/>
+    </bindings>
+    <bindings scd="~tns:ContributorType">
+      <class ref="org.edla.wikimediaschema.ContributorType"/>
+    </bindings>
+    <bindings scd="~tns:UploadType">
+      <class ref="org.edla.wikimediaschema.UploadType"/>
+    </bindings>
+    <bindings scd="~tns:DiscussionThreadingInfo">
+      <class ref="org.edla.wikimediaschema.DiscussionThreadingInfo"/>
     </bindings>
     <bindings scd="~tns:CaseType">
       <typesafeEnumClass ref="org.edla.wikimediaschema.CaseType"/>

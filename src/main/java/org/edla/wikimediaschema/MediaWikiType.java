@@ -1,8 +1,8 @@
 //
-// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.7 
+// Ce fichier a été généré par l'implémentation de référence JavaTM Architecture for XML Binding (JAXB), v2.2.11 
 // Voir <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
-// Généré le : 2014.08.23 à 05:44:25 PM CEST 
+// Généré le : 2015.03.04 à 11:33:32 PM CET 
 //
 
 
@@ -22,19 +22,19 @@ import javax.xml.bind.annotation.XmlType;
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="MediaWikiType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="siteinfo" type="{http://www.mediawiki.org/xml/export-0.9/}SiteInfoType" minOccurs="0"/>
- *         &lt;element name="page" type="{http://www.mediawiki.org/xml/export-0.9/}PageType" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="logitem" type="{http://www.mediawiki.org/xml/export-0.9/}LogItemType" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="version" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute ref="{http://www.w3.org/XML/1998/namespace}lang use="required""/>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="MediaWikiType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="siteinfo" type="{http://www.mediawiki.org/xml/export-0.9/}SiteInfoType" minOccurs="0"/&gt;
+ *         &lt;element name="page" type="{http://www.mediawiki.org/xml/export-0.9/}PageType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="logitem" type="{http://www.mediawiki.org/xml/export-0.9/}LogItemType" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="version" use="required" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute ref="{http://www.w3.org/XML/1998/namespace}lang use="required""/&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
