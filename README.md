@@ -23,7 +23,7 @@ http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-article
 **If your language is not with a latin alphabet you need to convert the language property to ISO 8859-1 with escape sequences.**  
 **Example for Nepali, you need to set language=\u0928\u0947\u092A\u093E\u0932\u0940**
 
-4. Build the project : mvn install  
+4. Build the project : mvn package
 (You need to rebuild the project each time you modify the dico.properties file)
 
 5. Launch the program :  java -jar target/dictionary-builder.jar
