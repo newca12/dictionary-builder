@@ -29,7 +29,7 @@ http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-article
 5. Launch the program :  java -jar target/dictionary-builder.jar
 
 6. Some results :  
-From the English dictionary 462220 entries are generated in less than 20 min and 2 Gigas disk space are required for the dictionary.  
+From the English dictionary 478069 entries are generated in less than 20 min and 2 Gigas disk space are required for the dictionary.  
 From the French dictionary 1205597 entries are generated in less than 30 min and 5 Gigas disk space are required for the dictionary.   
 From the Nepali dictionary 1062 entries are generated in 3 seconds and 5 Megas disk space are required for the dictionary.  
 

@@ -62,4 +62,11 @@
 			</plugin>
 		</plugins>
 	</build>
+    	<dependencies>
+		<dependency>
+    			<groupId>xerces</groupId>
+    			<artifactId>xercesImpl</artifactId>
+    			<version>2.11.0</version>
+		</dependency>
+    	</dependencies>	
 </project>
