@@ -9,6 +9,8 @@ The purpose of [edla.org](http://www.edla.org) is to promote the state of the ar
 
 ## How to use it ##
 
+0. Java 8u60 or later is required 
+
 1. Get a fresh wiktionary backup   
 Choose your favorite language and download the dump containing the current versions of article content [here](http://download.wikimedia.org/backup-index.html)  
 Example for the english dump:
@@ -20,16 +22,18 @@ http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-article
 3. Edit dico.properties to indicate the language you choose, where the dump is located and last but not least where the dictionary should be generated.  
 (Take care you need some free disk space to store your dictionary)  
 (dico.properties is located here : dictionary-builder/src/main/resources/org/edla/dico/construct/dico.properties)  
-**If your language is not with a latin alphabet you need to convert the language property to ISO 8859-1 with escape sequences.**  
-**Example for Nepali, you need to set language=\u0928\u0947\u092A\u093E\u0932\u0940**
+**Nota 1 : If you are using Windows you need to escape \ like this : `C:\\some_folder\\some_subfolder\\some_file`**   
+**Or you can use / like this : C:/some_folder/some_subfolder/some_file**   
+**Nota 2 : If your language is not with a latin alphabet you need to convert the language property to ISO 8859-1 with escape sequences.**  
+**Example for Nepali, you need to set language=\u0928\u0947\u092A\u093E\u0932\u0940**  
 
-4. Build the project : mvn package  
+4. Build the project : mvn clean package  
 (You need to rebuild the project each time you modify the dico.properties file)
 
 5. Launch the program :  java -jar target/dictionary-builder.jar
 
 6. Some results :  
-From the English dictionary 478069 entries are generated in less than 20 min and 2 Gigas disk space are required for the dictionary.  
+From the English dictionary 549207 entries are generated in less than 20 min and 2 Gigas disk space are required for the dictionary.  
 From the French dictionary 1205597 entries are generated in less than 30 min and 5 Gigas disk space are required for the dictionary.   
 From the Nepali dictionary 1062 entries are generated in 3 seconds and 5 Megas disk space are required for the dictionary.  
 
