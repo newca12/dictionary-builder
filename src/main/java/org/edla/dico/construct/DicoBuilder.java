@@ -17,9 +17,12 @@
 
 package org.edla.dico.construct;
 
+import java.io.BufferedWriter;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -32,8 +35,8 @@ import org.edla.wikimediaschema.RevisionType;
 public class DicoBuilder {
 
 	private Locator locator;
-	private FileWriter wordsWriter = null;
-	private FileWriter exclusWriter = null;
+	private BufferedWriter wordsWriter = null;
+	private BufferedWriter exclusWriter = null;
 	private String language;
 	private String languageShort;
 	private boolean expression;
@@ -51,8 +54,8 @@ public class DicoBuilder {
 						.println("and/or check/fix your config file dico.properties and try again.");
 				System.exit(1);
 			}
-			wordsWriter = new FileWriter(dicoProperties.wordsFile);
-			exclusWriter = new FileWriter(dicoProperties.exclusFile);
+			wordsWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(dicoProperties.wordsFile), StandardCharsets.UTF_8));
+			exclusWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(dicoProperties.exclusFile), StandardCharsets.UTF_8));
 			language = dicoProperties.language;
 			languageShort = dicoProperties.languageShort;
 			expression = dicoProperties.expression;
