@@ -5,7 +5,7 @@
 	<groupId>org.edla.dico</groupId>
 	<artifactId>dictionary-builder</artifactId>
 	<packaging>jar</packaging>
-	<version>1.7</version>
+	<version>1.8</version>
 	<name>Dictionary builder</name>
 	<url>http://www.edla.org</url>
 	<organization>

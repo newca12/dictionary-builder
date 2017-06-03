@@ -36,6 +36,8 @@ public class DicoProperties {
 
 	public boolean expression;
 
+	public boolean languageFilter;
+
 	private Properties prop = new Properties();
 
 	public static DicoProperties getInstance() {
@@ -71,7 +73,8 @@ public class DicoProperties {
 		this.xmlFile = getPropertySafely("xmlFile");
 		this.language = getPropertySafely("language");
 		this.languageShort = getPropertySafely("languageShort");
-		this.expression = Boolean.getBoolean(getPropertySafely("expression"));
+		this.expression = Boolean.valueOf(getPropertySafely("expression"));
+		this.languageFilter = Boolean.valueOf(getPropertySafely("languageFilter"));
 	}
 
 	private String getPropertySafely(String key) {

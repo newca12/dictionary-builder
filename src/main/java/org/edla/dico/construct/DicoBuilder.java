@@ -40,6 +40,7 @@ public class DicoBuilder {
 	private String language;
 	private String languageShort;
 	private boolean expression;
+	private boolean languageFilter;
 	int exclus = 0;
 	int wordCounter = 0;
 
@@ -59,6 +60,7 @@ public class DicoBuilder {
 			language = dicoProperties.language;
 			languageShort = dicoProperties.languageShort;
 			expression = dicoProperties.expression;
+			languageFilter = dicoProperties.languageFilter;
 		} catch (final IOException e) {
 			System.out.println(e.getMessage());
 			System.out.println("TIPS: check your config file dico.properties");
@@ -102,7 +104,8 @@ public class DicoBuilder {
 		}
 		//System.out.println("======= definition =======");
 		//System.out.println(definition);
-		if (definition.contains("==" + language + "==") //needed for English wiktionary
+		if ((!languageFilter && !definition.isEmpty())
+				|| definition.contains("==" + language + "==") //needed for English wiktionary
 				|| definition.contains("== " + language + " ==") //neeeded for Nepali wiktionary
 				//needed for French wiktionary
 				|| definition
