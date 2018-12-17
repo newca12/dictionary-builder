@@ -10,18 +10,18 @@ The resulting dictionnary is exactly the same that the one generated with the Ja
 
 dictionary-builder is an EDLA project.
 
-The purpose of [edla.org](http://www.edla.org) is to promote the state of the art in various domains.
+The purpose of [edla.org](https://edla.org) is to promote the state of the art in various domains.
 
 ## How to use it ##
 
-0. Java 8u60 or later is required 
+0. Java 8 or later is required 
 
 1. Get a fresh wiktionary backup   
 Choose your favorite language and download the dump containing the current versions of article content [here](http://download.wikimedia.org/backup-index.html)  
 Example for the english dump:
 http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles-multistream.xml.bz2
 
-2. ~~Uncompress the fresh downloaded dump somewhere~~~  
+2. ~~Uncompress the fresh downloaded dump somewhere~~ 
 ~~(Take care you need up to 5 Gigas of free disk space)~~  
 This is not needed anymore, the compressed dump will be decompressed on the fly.
 
@@ -39,8 +39,6 @@ This is not needed anymore, the compressed dump will be decompressed on the fly.
 5. Launch the program :  java -jar target/scala-2.12/dictionary-builder-assembly-2.0.0.jar
 
 6. Some results :  
-From the English dictionary 549207 entries are generated in less than 20 min and 2 Gigas disk space are required for the dictionary.  
-From the French dictionary 1205597 entries are generated in less than 30 min and 5 Gigas disk space are required for the dictionary.   
-From the Nepali dictionary 1062 entries are generated in 3 seconds and 5 Megas disk space are required for the dictionary.  
+From the English dictionary 699828 entries are generated
 
 That's it.
