@@ -1,7 +1,12 @@
 # Dictionary builder [![OpenHub](http://www.openhub.net/p/dictionary-builder/widgets/project_thin_badge.gif)](https://www.openhub.net/p/dictionary-builder)
 ## About ##
-Dictionary builder is a demonstration of advanced JAXB techniques to unmarshall very large xml document with very low memory footprint. 
 This project allow you to build dictionaries based on [Wiktionary](http://www.wiktionary.org/) entries.   
+
+*Dictionary builder used to be a demonstration of advanced JAXB techniques to unmarshall very large xml document with very low memory footprint.   
+The Java/JAXB implementation has been archived in [java-jaxb branch](https://github.com/newca12/dictionary-builder/tree/java-jaxb)*
+
+The new implementation is now re-written with Scala and Akka Streams.  
+The resulting dictionnary is exactly the same that the one generated with the Java/JAXB implementation.
 
 dictionary-builder is an EDLA project.
 
@@ -16,21 +21,22 @@ Choose your favorite language and download the dump containing the current versi
 Example for the english dump:
 http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles-multistream.xml.bz2
 
-2. Uncompress the fresh downloaded dump somewhere
-(Take care you need up to 5 Gigas of free disk space)
+2. ~~Uncompress the fresh downloaded dump somewhere~~~  
+~~(Take care you need up to 5 Gigas of free disk space)~~  
+This is not needed anymore, the compressed dump will be decompressed on the fly.
 
-3. Edit dico.properties to indicate the language you choose, where the dump is located and last but not least where the dictionary should be generated.  
+3. Edit application.conf to indicate the language you choose, where the dump is located and last but not least where the dictionary should be generated.  
 (Take care you need some free disk space to store your dictionary)  
-(dico.properties is located here : dictionary-builder/src/main/resources/org/edla/dico/construct/dico.properties)  
+(application.conf is located here : dictionary-builder/src/main/resources/application.conf)  
 **Nota 1 : If you are using Windows you need to escape \ like this : `C:\\some_folder\\some_subfolder\\some_file`**   
 **Or you can use / like this : C:/some_folder/some_subfolder/some_file**   
 **Nota 2 : If your language is not with a latin alphabet you need to convert the language property to ISO 8859-1 with escape sequences.**  
 **Example for Nepali, you need to set language=\u0928\u0947\u092A\u093E\u0932\u0940**  
 
-4. Build the project : mvn clean package  
-(You need to rebuild the project each time you modify the dico.properties file)
+4. Build the project : sbt assembly  
+(You need to rebuild the project each time you modify the application.conf file)
 
-5. Launch the program :  java -jar target/dictionary-builder.jar
+5. Launch the program :  java -jar target/scala-2.12/dictionary-builder-assembly-2.0.0.jar
 
 6. Some results :  
 From the English dictionary 549207 entries are generated in less than 20 min and 2 Gigas disk space are required for the dictionary.  
