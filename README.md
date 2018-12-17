@@ -1,4 +1,6 @@
 # Dictionary builder [![OpenHub](http://www.openhub.net/p/dictionary-builder/widgets/project_thin_badge.gif)](https://www.openhub.net/p/dictionary-builder)
+ 
+**This project has been rewritten with Scala and Akka Streams. Check the master branch.**
 ## About ##
 Dictionary builder is a demonstration of advanced JAXB techniques to unmarshall very large xml document with very low memory footprint. 
 This project allow you to build dictionaries based on [Wiktionary](http://www.wiktionary.org/) entries.   
