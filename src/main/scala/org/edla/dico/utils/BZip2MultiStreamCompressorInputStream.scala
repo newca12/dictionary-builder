@@ -12,8 +12,7 @@ import org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream
   * This class solving problem/bug in BZip2CompressorInputStream when file is compressed using multiple streams.
   * It based on code by William Woody from http://chaosinmotion.com/blog/?p=723
   */
-class BZip2MultiStreamCompressorInputStream(inputStream: InputStream)
-    extends CompressorInputStream {
+class BZip2MultiStreamCompressorInputStream(inputStream: InputStream) extends CompressorInputStream {
 
   private var bZip2CompressorInputStream: BZip2CompressorInputStream =
     new BZip2CompressorInputStream(inputStream)
