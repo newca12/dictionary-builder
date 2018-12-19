@@ -15,10 +15,12 @@ import com.typesafe.config.ConfigFactory
 import org.edla.dico.utils.BZip2MultiStreamCompressorInputStream
 
 import scala.collection.immutable
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContext, Future}
 
 object DicoBuilder extends App {
   println("Your dictionary is being built. Please wait.")
+
+  implicit val ec = ExecutionContext.global
 
   val conf = ConfigFactory.load().getConfig("dictionary-builder")
 
@@ -38,19 +40,15 @@ object DicoBuilder extends App {
     val (word, definition) = element
     //println("===========================")
     //println(definition)
-    if (word.contains("/") || word.contains(":")) return false
-    if (!expression && word.contains(" ")) return false
-    if ((!languageFilter && !definition.isEmpty)
-        || definition.contains("==" + language + "==")   //needed for English wiktionary
-        || definition.contains("== " + language + " ==") //neeeded for Nepali wiktionary
-        //needed for French wiktionary
-        || definition
-          .contains("== {{langue|" + languageShort + "}} ==")
-        || definition.contains("== {{langue|" + languageShort + "}}==")
-        || definition.contains("=={{langue|" + languageShort + "}}==")
-        || definition.contains("=={{langue|" + languageShort + "}} =="))
-      true
-    else false
+    !List("/", ":").exists(word.contains) && (expression || !word.contains(" ")) &&
+    definition.nonEmpty && (!languageFilter || List(
+      "==" + language + "==",
+      "== " + language + " ==",
+      "== {{langue|" + languageShort + "}} ==",
+      "== {{langue|" + languageShort + "}}==",
+      "=={{langue|" + languageShort + "}}==",
+      "=={{langue|" + languageShort + "}} =="
+    ).exists(definition.contains))
   }
 
   def locate(word: String): String = {
@@ -127,25 +125,25 @@ object DicoBuilder extends App {
   val g = RunnableGraph.fromGraph(GraphDSL.create() { implicit builder: GraphDSL.Builder[NotUsed] ⇒
     import akka.stream.scaladsl.GraphDSL.Implicits._
 
-    val uncompressedOsmFileSource: Source[ByteString, Future[IOResult]] =
+    val uncompressedXmlDumpSource: Source[ByteString, Future[IOResult]] =
       StreamConverters.fromInputStream(() ⇒ new BZip2MultiStreamCompressorInputStream(new FileInputStream(xmlDump)))
     val partition: UniformFanOutShape[(String, String), (String, String)] =
       builder.add(Partition[(String, String)](2, e ⇒ if (isValidWord(e)) 1 else 0))
     val excludedWordFlow: Flow[(String, String), ByteString, NotUsed] =
-      Flow[(String, String)].map(t ⇒ ByteString(t._1 + "\n"))
+      Flow[(String, String)].mapAsync(4)(t ⇒ Future(ByteString(t._1 + "\n")))
     val validWordSink: Sink[ByteString, Future[IOResult]] = FileIO.toPath(wordsFile)
     val validWordFlow: Flow[(String, String), ByteString, NotUsed] =
-      Flow[(String, String)].map { t ⇒
+      Flow[(String, String)].mapAsync(4) { t ⇒
         buildDefinitionFiles(t._1, t._2)
-        ByteString(t._1 + "\n")
+        Future(ByteString(t._1 + "\n"))
       }
     val excludedWordSink: Sink[ByteString, Future[IOResult]] =
       FileIO.toPath(excludedWordsFile)
-    uncompressedOsmFileSource ~> xmlParserFlow ~> partition.in
-    partition.out(0) ~> excludedWordFlow ~> excludedWordSink
-    partition.out(1) ~> validWordFlow ~> validWordSink
+    uncompressedXmlDumpSource.async ~> xmlParserFlow.async ~> partition.in
+    partition.out(0) ~> excludedWordFlow.async ~> excludedWordSink.async
+    partition.out(1) ~> validWordFlow.async ~> validWordSink.async
     ClosedShape
   })
 
-  g.run()
+  g.async.run()
 }
