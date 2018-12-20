@@ -1,6 +1,6 @@
 package org.edla.dico.utils
 
-//https://github.com/lzenczuk/akka-app-one/blob/master/src/main/scala/com/github/lzenczuk/akka/course/streams/BZip2MultiStreamCompressorInputStream.scalaimport java
+//https://github.com/lzenczuk/akka-app-one/blob/master/src/main/scala/com/github/lzenczuk/akka/course/streams/BZip2MultiStreamCompressorInputStream.scala
 import java.io.InputStream
 
 import org.apache.commons.compress.compressors.CompressorInputStream
