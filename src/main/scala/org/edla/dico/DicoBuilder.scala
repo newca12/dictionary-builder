@@ -24,7 +24,7 @@ object DicoBuilder extends App {
 
   val conf = ConfigFactory.load().getConfig("dictionary-builder")
 
-  val root              = conf.getString("root")
+  val rootDirectory     = conf.getString("root")
   val wordsFile         = Paths.get(conf.getString("wordsFile"))
   val excludedWordsFile = Paths.get(conf.getString("excludedWordsFile"))
   val xmlDump           = conf.getString("xmlDump")
@@ -52,16 +52,17 @@ object DicoBuilder extends App {
   }
 
   def locate(word: String): String = {
-    val rootDirectory = "/tmp/dico"
-    if (word.length == 1) rootDirectory + "/" + word
-    else rootDirectory + "/" + word.charAt(0) + "/" + word.charAt(1)
+    if (word.length == 1) rootDirectory + File.separator + word
+    else rootDirectory + File.separator + word.charAt(0) + File.separator + word.charAt(1)
   }
 
   private def buildDefinitionFiles(word: String, definition: String): Unit = {
     val directory = locate(word)
     try {
       new File(directory).mkdirs
-      val writer = new BufferedOutputStream(new GZIPOutputStream(new FileOutputStream(directory + "/" + word + ".gz")))
+      val writer = new BufferedOutputStream(
+        new GZIPOutputStream(new FileOutputStream(directory + File.separator + word + ".gz"))
+      )
       /*
        * ZipOutputStream writer = new ZipOutputStream( new
        * BufferedOutputStream(new FileOutputStream(directory + "/" + word
