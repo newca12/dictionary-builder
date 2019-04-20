@@ -1,9 +1,9 @@
 import sbt._
 
 object Version {
-  val akka                      = "2.5.19"
+  val akka                      = "2.5.22"
   val akkaStreamsKafka          = "0.22"
-  val akkaStreamAlpakka         = "1.0-M1"
+  val akkaStreamAlpakka         = "1.0.0"
   val akkaStreamContrib         = "0.9"
   val scopt                     = "3.7.0"
   val kamon                     = "1.1.3"
