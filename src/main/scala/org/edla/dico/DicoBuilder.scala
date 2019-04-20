@@ -73,7 +73,7 @@ object DicoBuilder extends App {
       // writer.write(definition);
       writer.close()
     } catch {
-      case e: IOException ⇒
+      case e: IOException =>
         System.out.println(word + " " + directory)
         e.printStackTrace()
     }
@@ -81,7 +81,7 @@ object DicoBuilder extends App {
 
   val xmlParserFlow: Flow[ByteString, (String, String), NotUsed] =
     XmlParsing.parser
-      .statefulMapConcat(() ⇒ {
+      .statefulMapConcat(() => {
         // state
         var insidePage  = false
         var insideTitle = false
@@ -90,51 +90,51 @@ object DicoBuilder extends App {
         val textBuffer  = StringBuilder.newBuilder
         // aggregation function
         _ match {
-          case StartElement("page", _, _, _, _) ⇒
+          case StartElement("page", _, _, _, _) =>
             insidePage = true
             immutable.Seq.empty
-          case StartElement("title", _, _, _, _) ⇒
+          case StartElement("title", _, _, _, _) =>
             insideTitle = true
             titleBuffer.clear()
             immutable.Seq.empty
-          case StartElement("text", _, _, _, _) ⇒
+          case StartElement("text", _, _, _, _) =>
             insideText = true
             textBuffer.clear()
             immutable.Seq.empty
-          case EndElement("page") ⇒
+          case EndElement("page") =>
             val pageText  = textBuffer.toString
             val titleText = titleBuffer.toString
             insidePage = false
             immutable.Seq((titleText, pageText))
-          case EndElement("title") ⇒
+          case EndElement("title") =>
             insideTitle = false
             immutable.Seq.empty
-          case EndElement("text") ⇒
+          case EndElement("text") =>
             insideText = false
             immutable.Seq.empty
-          case t: TextEvent ⇒
+          case t: TextEvent =>
             if (insideTitle)
               titleBuffer.append(t.text)
             if (insidePage && insideText)
               textBuffer.append(t.text)
             immutable.Seq.empty
-          case _ ⇒
+          case _ =>
             immutable.Seq.empty
         }
       })
 
-  val g = RunnableGraph.fromGraph(GraphDSL.create() { implicit builder: GraphDSL.Builder[NotUsed] ⇒
+  val g = RunnableGraph.fromGraph(GraphDSL.create() { implicit builder: GraphDSL.Builder[NotUsed] =>
     import akka.stream.scaladsl.GraphDSL.Implicits._
 
     val uncompressedXmlDumpSource: Source[ByteString, Future[IOResult]] =
-      StreamConverters.fromInputStream(() ⇒ new BZip2MultiStreamCompressorInputStream(new FileInputStream(xmlDump)))
+      StreamConverters.fromInputStream(() => new BZip2MultiStreamCompressorInputStream(new FileInputStream(xmlDump)))
     val partition: UniformFanOutShape[(String, String), (String, String)] =
-      builder.add(Partition[(String, String)](2, e ⇒ if (isValidWord(e)) 1 else 0))
+      builder.add(Partition[(String, String)](2, e => if (isValidWord(e)) 1 else 0))
     val excludedWordFlow: Flow[(String, String), ByteString, NotUsed] =
-      Flow[(String, String)].mapAsync(4)(t ⇒ Future(ByteString(t._1 + "\n")))
+      Flow[(String, String)].mapAsync(4)(t => Future(ByteString(t._1 + "\n")))
     val validWordSink: Sink[ByteString, Future[IOResult]] = FileIO.toPath(wordsFile)
     val validWordFlow: Flow[(String, String), ByteString, NotUsed] =
-      Flow[(String, String)].mapAsync(4) { t ⇒
+      Flow[(String, String)].mapAsync(4) { t =>
         buildDefinitionFiles(t._1, t._2)
         Future(ByteString(t._1 + "\n"))
       }
