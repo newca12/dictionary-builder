@@ -9,6 +9,8 @@ import akka.actor.ActorSystem
 import akka.stream._
 import akka.stream.alpakka.xml.scaladsl.XmlParsing
 import akka.stream.alpakka.xml.{EndElement, StartElement, TextEvent}
+import akka.stream.checkpoint.scaladsl.Implicits._
+import akka.stream.checkpoint.{CheckpointBackend, KamonBackend}
 import akka.stream.scaladsl.{
   Broadcast,
   FileIO,
@@ -25,12 +27,15 @@ import com.typesafe.config.ConfigFactory
 import org.edla.dico.utils.BZip2MultiStreamCompressorInputStream
 
 import scala.collection.immutable
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{ExecutionContext, ExecutionContextExecutor, Future}
 
 object DicoBuilder extends App {
   println("Your dictionary is being built. Please wait.")
 
-  implicit val ec = ExecutionContext.global
+  implicit val ec: ExecutionContextExecutor = ExecutionContext.global
+  implicit val backend: CheckpointBackend   = KamonBackend.instance
+
+  kamon.Kamon.addReporter(new kamon.statsd.StatsDReporter())
 
   val conf = ConfigFactory.load().getConfig("dictionary-builder")
 
@@ -154,19 +159,25 @@ object DicoBuilder extends App {
             val partition: UniformFanOutShape[(String, String), (String, String)] =
               builder.add(Partition[(String, String)](2, e => if (isValidWord(e)) 1 else 0))
             val excludedWordFlow: Flow[(String, String), ByteString, NotUsed] =
-              Flow[(String, String)].mapAsync(64)(t => Future(ByteString(t._1 + "\n")))
+              Flow[(String, String)]
+                .mapAsync(32)(t => Future(ByteString(t._1 + "\n")))
+                .buffer(8192, OverflowStrategy.backpressure)
             val validWordFlow: Flow[(String, String), ByteString, NotUsed] =
-              Flow[(String, String)].mapAsync(64) { t =>
-                buildDefinitionFiles(t._1, t._2)
-                Future(ByteString(t._1 + "\n"))
-              }
+              Flow[(String, String)]
+                .mapAsync(32) { t =>
+                  buildDefinitionFiles(t._1, t._2)
+                  Future(ByteString(t._1 + "\n"))
+                }
+                .buffer(8192, OverflowStrategy.backpressure)
             uncompressedXmlDumpSource
-              .buffer(50, OverflowStrategy.backpressure)
-              .async ~> xmlParserFlow.async ~> partition.in
-            partition.out(0) ~> excludedWordFlow.async ~> broadcastExcluded.in
+              .buffer(65535, OverflowStrategy.backpressure)
+              .async
+              .checkpoint("A")
+              .async ~> xmlParserFlow.async.checkpoint("B") ~> partition.in
+            partition.out(0) ~> excludedWordFlow.async.checkpoint("C").async ~> broadcastExcluded.in
             broadcastExcluded.out(0) ~> excluded
             broadcastExcluded.out(1) ~> countExcluded
-            partition.out(1) ~> validWordFlow.async ~> broadcastValid.in
+            partition.out(1) ~> validWordFlow.async.checkpoint("D").async ~> broadcastValid.in
             broadcastValid.out(0) ~> valid
             broadcastValid.out(1) ~> countValid
             ClosedShape
