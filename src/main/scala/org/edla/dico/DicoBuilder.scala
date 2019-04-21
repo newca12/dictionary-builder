@@ -9,7 +9,17 @@ import akka.actor.ActorSystem
 import akka.stream._
 import akka.stream.alpakka.xml.scaladsl.XmlParsing
 import akka.stream.alpakka.xml.{EndElement, StartElement, TextEvent}
-import akka.stream.scaladsl.{FileIO, Flow, GraphDSL, Partition, RunnableGraph, Sink, Source, StreamConverters}
+import akka.stream.scaladsl.{
+  Broadcast,
+  FileIO,
+  Flow,
+  GraphDSL,
+  Partition,
+  RunnableGraph,
+  Sink,
+  Source,
+  StreamConverters
+}
 import akka.util.ByteString
 import com.typesafe.config.ConfigFactory
 import org.edla.dico.utils.BZip2MultiStreamCompressorInputStream
@@ -123,28 +133,66 @@ object DicoBuilder extends App {
         }
       })
 
-  val g = RunnableGraph.fromGraph(GraphDSL.create() { implicit builder: GraphDSL.Builder[NotUsed] =>
-    import akka.stream.scaladsl.GraphDSL.Implicits._
+  val validWordSink: Sink[ByteString, Future[IOResult]]    = FileIO.toPath(wordsFile)
+  val excludedWordSink: Sink[ByteString, Future[IOResult]] = FileIO.toPath(excludedWordsFile)
+  val countValidWordSink: Sink[ByteString, Future[Int]]    = Sink.fold[Int, ByteString](0)((acc, _) => acc + 1)
+  val countExcludedWordSink: Sink[ByteString, Future[Int]] = Sink.fold[Int, ByteString](0)((acc, _) => acc + 1)
 
-    val uncompressedXmlDumpSource: Source[ByteString, Future[IOResult]] =
-      StreamConverters.fromInputStream(() => new BZip2MultiStreamCompressorInputStream(new FileInputStream(xmlDump)))
-    val partition: UniformFanOutShape[(String, String), (String, String)] =
-      builder.add(Partition[(String, String)](2, e => if (isValidWord(e)) 1 else 0))
-    val excludedWordFlow: Flow[(String, String), ByteString, NotUsed] =
-      Flow[(String, String)].mapAsync(4)(t => Future(ByteString(t._1 + "\n")))
-    val validWordSink: Sink[ByteString, Future[IOResult]] = FileIO.toPath(wordsFile)
-    val validWordFlow: Flow[(String, String), ByteString, NotUsed] =
-      Flow[(String, String)].mapAsync(4) { t =>
-        buildDefinitionFiles(t._1, t._2)
-        Future(ByteString(t._1 + "\n"))
+  val g: RunnableGraph[(Future[IOResult], Future[IOResult], Future[Int], Future[Int])] =
+    RunnableGraph.fromGraph(
+      GraphDSL.create(validWordSink, excludedWordSink, countValidWordSink, countExcludedWordSink)((_, _, _, _)) {
+        implicit builder: GraphDSL.Builder[(Future[IOResult], Future[IOResult], Future[Int], Future[Int])] =>
+          (valid, excluded, countValid, countExcluded) =>
+            import akka.stream.scaladsl.GraphDSL.Implicits._
+            //https://stackoverflow.com/questions/49225365/count-number-of-elements-in-akka-streams
+            val broadcastValid    = builder.add(Broadcast[ByteString](2))
+            val broadcastExcluded = builder.add(Broadcast[ByteString](2))
+            val uncompressedXmlDumpSource: Source[ByteString, Future[IOResult]] =
+              StreamConverters.fromInputStream(
+                () => new BZip2MultiStreamCompressorInputStream(new FileInputStream(xmlDump))
+              )
+            val partition: UniformFanOutShape[(String, String), (String, String)] =
+              builder.add(Partition[(String, String)](2, e => if (isValidWord(e)) 1 else 0))
+            val excludedWordFlow: Flow[(String, String), ByteString, NotUsed] =
+              Flow[(String, String)].mapAsync(64)(t => Future(ByteString(t._1 + "\n")))
+            val validWordFlow: Flow[(String, String), ByteString, NotUsed] =
+              Flow[(String, String)].mapAsync(64) { t =>
+                buildDefinitionFiles(t._1, t._2)
+                Future(ByteString(t._1 + "\n"))
+              }
+            uncompressedXmlDumpSource
+              .buffer(50, OverflowStrategy.backpressure)
+              .async ~> xmlParserFlow.async ~> partition.in
+            partition.out(0) ~> excludedWordFlow.async ~> broadcastExcluded.in
+            broadcastExcluded.out(0) ~> excluded
+            broadcastExcluded.out(1) ~> countExcluded
+            partition.out(1) ~> validWordFlow.async ~> broadcastValid.in
+            broadcastValid.out(0) ~> valid
+            broadcastValid.out(1) ~> countValid
+            ClosedShape
       }
-    val excludedWordSink: Sink[ByteString, Future[IOResult]] =
-      FileIO.toPath(excludedWordsFile)
-    uncompressedXmlDumpSource.async ~> xmlParserFlow.async ~> partition.in
-    partition.out(0) ~> excludedWordFlow.async ~> excludedWordSink.async
-    partition.out(1) ~> validWordFlow.async ~> validWordSink.async
-    ClosedShape
-  })
+    )
 
-  g.async.run()
+  val done: (Future[IOResult], Future[IOResult], Future[Int], Future[Int]) = g.async.run()
+
+  val aggFut: Future[(IOResult, IOResult, Int, Int)] = for {
+    validResults        <- done._1
+    excludedResults     <- done._2
+    countValidResult    <- done._3
+    countExcludedResult <- done._4
+  } yield (validResults, excludedResults, countValidResult, countExcludedResult)
+
+  aggFut.map { r =>
+    println(s"total number of entries: ${r._3}")
+    println(s"total number of removed entries: ${r._4}")
+    system.terminate()
+  }
+
+  aggFut.failed.map { _ =>
+    println("Opus something went wrong")
+    println(s"Please, create the root folder $rootDirectory")
+    println("and/or check/fix your config file application.conf and try again.")
+    system.terminate()
+  }
+
 }
