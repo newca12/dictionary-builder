@@ -4,10 +4,11 @@ lazy val root = (project in file("."))
       List(
         organization := "org.edla",
         scalaVersion := "2.12.8",
-        version := "2.0.0"
+        version := "2.1.0"
       )
     ),
     name := "dictionary-builder",
+    mainClass in assembly := Some("org.edla.dico.DicoBuilder"),
     scalacOptions ++= Seq(
       "-deprecation", // Emit warning and location for usages of deprecated APIs.
       "-encoding",

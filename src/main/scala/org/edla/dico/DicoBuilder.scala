@@ -196,14 +196,14 @@ object DicoBuilder extends App {
   aggFut.map { r =>
     println(s"total number of entries: ${r._3}")
     println(s"total number of removed entries: ${r._4}")
-    system.terminate()
+    system.terminate().map(_ => System.exit(0))
   }
 
   aggFut.failed.map { _ =>
-    println("Opus something went wrong")
+    println("Oups something went wrong")
     println(s"Please, create the root folder $rootDirectory")
     println("and/or check/fix your config file application.conf and try again.")
-    system.terminate()
+    system.terminate().map(_ => System.exit(1))
   }
 
 }

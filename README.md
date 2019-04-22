@@ -36,9 +36,15 @@ This is not needed anymore, the compressed dump will be decompressed on the fly.
 4. Build the project : sbt assembly  
 (You need to rebuild the project each time you modify the application.conf file)
 
-5. Launch the program :  java -jar target/scala-2.12/dictionary-builder-assembly-2.0.0.jar
+5. Launch the program :  java -jar target/scala-2.12/dictionary-builder-assembly-2.1.0.jar
 
 6. Some results :  
-From the English dictionary 699828 entries are generated
+From the English dictionary 716782 entries are generated in less than 1 hour and 3 Gigas disk space are required for the dictionary.
+This is 3 times slower than the Java/JAXB version but remember that the dump is now decompressed on the fly.
+
 
 That's it.
+
+### License ###
+© 2009-2019 Olivier ROLAND. Distributed under the GPLv3 License.
+
