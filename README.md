@@ -2,10 +2,10 @@
 ## About ##
 This project allow you to build dictionaries based on [Wiktionary](http://www.wiktionary.org/) entries.   
 
-*Dictionary builder used to be a demonstration of advanced JAXB techniques to unmarshall very large xml document with very low memory footprint.   
+Dictionary builder used to be a demonstration of advanced JAXB techniques to unmarshall very large xml document with very low memory footprint.   
 The Java/JAXB implementation has been archived in [java-jaxb branch](https://github.com/newca12/dictionary-builder/tree/java-jaxb)
 
-Then it was re-written with Scala and Akka Streams.
+Then it was re-written with Scala and Akka Streams.  
 The Scala/akka-stream implementation has been archived in [scala-akka-streams branch](https://github.com/newca12/dictionary-builder/tree/scala-akka-streams)
 
 The resulting dictionnary is exactly the same with the three implementations.
@@ -27,7 +27,6 @@ http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-article
 2. Uncompress the fresh downloaded dump somewhere (Take care you need up to 6 Gigas of free disk space)
 
 3. Build the executable : cargo build --release  
-(You need to rebuild the project each time you modify the application.conf file)
 
 4. Edit Setings.toml to indicate the language you choose, where the dump is located and last but not least where the dictionary should be generated.  
 (Take care you need some free disk space to store your dictionary)   
@@ -45,7 +44,7 @@ The Rust version was not tested on Windows systems.
 
 ### Performance comparaison ###
 
-Test were done on a modest : i7-4600U CPU @ 2.10GHz with SSD.  
+Test were done on a modest i7-4600U CPU @ 2.10GHz with SSD.  
 The results sound like a joke :
 
 || Rust  | Scala/akka streams | Java/JAXB |
