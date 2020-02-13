@@ -8,6 +8,8 @@ The Java/JAXB implementation has been archived in [java-jaxb branch](https://git
 Then it was re-written with Scala and Akka Streams.  
 The Scala/akka-stream implementation has been archived in [scala-akka-streams branch](https://github.com/newca12/dictionary-builder/tree/scala-akka-streams)
 
+And now re-written with Rust.
+
 The resulting dictionnary is exactly the same with the three implementations.
 None of these implementations was designed to be use as a benchmark but nethertheless Rust results are breathtaking. See below.
 
