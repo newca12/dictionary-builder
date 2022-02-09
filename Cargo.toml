@@ -11,4 +11,4 @@ serde = "^1.0.8"
 unicode-segmentation = "1.6.0"
 flate2 = "1.0"
 bzip2 = { git = "https://github.com/alexcrichton/bzip2-rs" }
-parse_mediawiki_dump = { git = "https://github.com/portstrom/parse_mediawiki_dump" }
+parse_mediawiki_dump = "0.1.0"
