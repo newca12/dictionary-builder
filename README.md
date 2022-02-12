@@ -26,25 +26,21 @@ Choose your favorite language and download the dump containing the current versi
 Example for the english dump:
 http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles-multistream.xml.bz2
 
-2. Uncompress the fresh downloaded dump somewhere (Take care you need up to 6 Gigas of free disk space)
+2. Uncompress the fresh downloaded dump somewhere (Take care you need up to 7 Gigas of free disk space)
 
 3. Build the executable : cargo build --release  
 
 4. Edit Setings.toml to indicate the language you choose, where the dump is located and last but not least where the dictionary should be generated.  
-(Take care you need some free disk space to store your dictionary)   
+(Take care you need at least 4G of free disk space to store your dictionary)   
 
-5. Launch the program :  ./target/release/dictionary-builder
+5. Launch the program : ./target/release/dictionary-builder
 
 6. Some results :  
-From the English dictionary 746879 entries are generated in less than 2 minutes and 3 Gigas disk space are required for the dictionary.
+From the English dictionary 847469 entries are generated in less than 2 minutes and 3.5 Gigas disk space are required for the dictionary.
 
 That's it.
 
-### Limitations ###
-
-The Rust version was not tested on Windows systems.
-
-### Performance comparaison ###
+## Performance comparaison ##
 
 Test were done on a modest i7-4600U CPU @ 2.10GHz with SSD.  
 The results sound like a joke :
@@ -56,7 +52,14 @@ The results sound like a joke :
 
 Rust implementation outperform by far the others implementations and the icing on the cake : Rust use ten time less memory. :rocket:
 
+## Developer Notes ##
+
+Some words like for example `con` are [reserved](https://superuser.com/questions/86999/why-cant-i-name-a-folder-or-file-con-in-windows) in Windows system. but :
+``` rust
+File::create("con").expect("Unable to create file"); 
+````
+will not trig any error. (This is not specific to Rust, Java will not trig an exception either)
 
 ### License ###
-© 2009-2020 Olivier ROLAND. Distributed under the GPLv3 License.
+© 2009-2022 Olivier ROLAND. Distributed under the GPLv3 License.
 

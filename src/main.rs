@@ -1,6 +1,8 @@
 extern crate serde;
+use env_logger::{self, Env};
 use flate2::write::GzEncoder;
 use flate2::Compression;
+use log::{debug, info, warn};
 use parse_mediawiki_dump::Page;
 use std::fs::File;
 use std::io;
@@ -15,6 +17,9 @@ mod settings;
 use settings::Settings;
 
 fn main() {
+    env_logger::Builder::from_env(Env::default().filter_or("LOG", "info"))
+        .format_timestamp(None)
+        .init();
     let settings = Settings::new().unwrap();
 
     if settings.xml_dump.is_some() {
@@ -57,6 +62,7 @@ fn parse(source: impl std::io::BufRead, settings: &Settings) {
     let mut writer_excluded = BufWriter::new(f_excluded);
     let mut word_counter = 0;
     let mut excluded_counter = 0;
+    let mut unexpected_errors = 0;
     let language = &settings.language;
     let language_short = &settings.language_short;
     let filters = vec![
@@ -75,15 +81,18 @@ fn parse(source: impl std::io::BufRead, settings: &Settings) {
                 std::process::exit(1);
             }
             Ok(page) => {
-                if build_dico(&page, &settings, &filters) == true {
+                if build_dico(&page, settings, &filters) {
                     writer_words
                         .write_all(page.title.as_bytes())
                         .expect("Unable to write data");
                     writer_words
                         .write_all("\n".as_bytes())
                         .expect("Unable to write data");
-                    build_definition_file(&page, &settings);
-                    word_counter += 1;
+                    if build_definition_file(&page, settings) {
+                        word_counter += 1;
+                    } else {
+                        unexpected_errors += 1;
+                    }
                 } else {
                     writer_excluded
                         .write_all(page.title.as_bytes())
@@ -96,11 +105,12 @@ fn parse(source: impl std::io::BufRead, settings: &Settings) {
             }
         }
     }
-    println!("total number of entries:{}", word_counter);
-    println!("total number of removed entries:{}", excluded_counter);
+    info!("total number of entries:{}", word_counter);
+    info!("total number of removed entries:{}", excluded_counter);
+    info!("unexpected errors:{}", unexpected_errors);
 }
 
-fn filter(page: &Page, settings: &Settings, filters: &Vec<String>) -> bool {
+fn filter(page: &Page, settings: &Settings, filters: &[String]) -> bool {
     let title: &str = page.title.as_ref();
     if title.contains('/') || title.contains(':') {
         return false;
@@ -108,43 +118,68 @@ fn filter(page: &Page, settings: &Settings, filters: &Vec<String>) -> bool {
     if !settings.expression && title.contains(' ') {
         return false;
     }
-    if  filters.into_iter().any(|item| page.text.contains(item)) {
+    if filters.iter().any(|item| page.text.contains(item)) {
         return true;
     };
     false
 }
 
-fn build_dico(page: &Page, settings: &Settings, filters: &Vec<String>) -> bool {
+fn build_dico(page: &Page, settings: &Settings, filters: &[String]) -> bool {
     let title: &str = page.title.as_ref();
     let mut word = title.to_owned();
     let definition = filter(page, settings, filters);
     word.push('\n');
-    if definition == true {
-        true
-    } else {
-        false
-    }
+    definition
 }
 
-fn build_definition_file(page: &Page, settings: &Settings) {
+fn build_definition_file(page: &Page, settings: &Settings) -> bool {
     let definition: &str = page.text.as_ref();
     let definition = definition.to_owned();
     let title: &str = page.title.as_ref();
+    debug!("Found {}", title);
     let mut full_path = String::new();
-    let location = locator(&title, &settings);
-    std::fs::create_dir_all(&location).expect("Unable to create file");
-    full_path.push_str(&location);
-    full_path.push(std::path::MAIN_SEPARATOR);
-    full_path.push_str(title);
-    full_path.push_str(".gz");
-    let f_definition = File::create(full_path).expect("Unable to create file");
-    let mut writer_definition = BufWriter::new(f_definition);
-    let mut e = GzEncoder::new(Vec::new(), Compression::default());
-    e.write_all(definition.as_bytes()).unwrap();
-    let compressed_bytes = e.finish().unwrap();
-    writer_definition
-        .write_all(&compressed_bytes)
-        .expect("Unable to write data");
+    let location = locator(title, settings);
+    let try_create_dir = std::fs::create_dir_all(&location); //.expect("Unable to create file");
+    match try_create_dir {
+        Ok(_) => {
+            full_path.push_str(&location);
+            full_path.push(std::path::MAIN_SEPARATOR);
+            full_path.push_str(title);
+            full_path.push_str(".gz");
+            debug!("Path {}", full_path);
+            let try_f_definition = File::create(full_path);
+            match try_f_definition {
+                Ok(f_definition) => {
+                    let meta = f_definition.metadata();
+                    match meta {
+                        Ok(_) => {
+                            let mut writer_definition = BufWriter::new(f_definition);
+                            let mut e = GzEncoder::new(Vec::new(), Compression::default());
+                            e.write_all(definition.as_bytes()).expect("write");
+                            let compressed_bytes = e.finish().expect("finish");
+                            writer_definition
+                                .write_all(&compressed_bytes)
+                                .expect("Unable to write data");
+                            true
+                        }
+                        Err(_) => {
+                            warn!("File named '{}' not allowed on this system (probably a reserved word)", title);
+                            false
+                        }
+                    }
+                }
+
+                Err(_) => {
+                    warn!("File named '{}' not allowed on this system", title);
+                    false
+                }
+            }
+        }
+        Err(_) => {
+            warn!("Directory named '{}' not allowed on this system", title);
+            false
+        }
+    }
 }
 
 fn locator(word: &str, settings: &Settings) -> String {
@@ -162,5 +197,5 @@ fn locator(word: &str, settings: &Settings) -> String {
         located_full_path.push(std::path::MAIN_SEPARATOR);
         located_full_path.push_str(unicode_vect[1]);
     }
-    return located_full_path;
+    located_full_path
 }
