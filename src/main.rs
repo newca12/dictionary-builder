@@ -81,17 +81,31 @@ fn parse(source: impl std::io::BufRead, settings: &Settings) {
                 std::process::exit(1);
             }
             Ok(page) => {
-                if build_dico(&page, settings, &filters) {
+                if page.namespace == 0
+                    && match &page.format {
+                        None => false,
+                        Some(format) => format == "text/x-wiki",
+                    }
+                    && match &page.model {
+                        None => false,
+                        Some(model) => model == "wikitext",
+                    }
+                    && build_dico(&page, settings, &filters)
+                {
                     writer_words
                         .write_all(page.title.as_bytes())
                         .expect("Unable to write data");
                     writer_words
                         .write_all("\n".as_bytes())
                         .expect("Unable to write data");
-                    if build_definition_file(&page, settings) {
-                        word_counter += 1;
+                    if settings.with_definition {
+                        if build_definition_file(&page, settings) {
+                            word_counter += 1;
+                        } else {
+                            unexpected_errors += 1;
+                        }
                     } else {
-                        unexpected_errors += 1;
+                        word_counter += 1;
                     }
                 } else {
                     writer_excluded

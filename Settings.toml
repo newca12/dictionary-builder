@@ -2,6 +2,7 @@ root="/tmp/dico"
 words_file="/tmp/dico/words"
 excluded_words_file="/tmp/dico/excluded"
 xml_dump="/tmp/enwiktionary-latest-pages-articles-multistream.xml"
+with_definition = false
 expression = false
 language_filter = true
 language = "English"

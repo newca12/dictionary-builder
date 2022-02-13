@@ -31,7 +31,7 @@ http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-article
 3. Build the executable : cargo build --release  
 
 4. Edit Setings.toml to indicate the language you choose, where the dump is located and last but not least where the dictionary should be generated.  
-(Take care you need at least 4G of free disk space to store your dictionary)   
+(With Windows systems PATHs need to be escaped for example `C:\\dico\\words` and take care you need at least 4G of free disk space to store your dictionary if you set `with_definition=true`)
 
 5. Launch the program : ./target/release/dictionary-builder
 
