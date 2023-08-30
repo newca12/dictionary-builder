@@ -1,4 +1,4 @@
-use config::ConfigError;
+use config::{ConfigError, Config, File};
 
 #[derive(Debug, Deserialize)]
 pub struct Settings {
@@ -14,9 +14,12 @@ pub struct Settings {
 }
 
 impl Settings {
-    pub fn new() -> Result<Self, ConfigError> {
-        let mut settings = config::Config::default();
-        settings.merge(config::File::with_name("Settings")).unwrap();
-        settings.try_into()
+    pub fn new(file_settings_path: &str) -> Result<Self, ConfigError> {
+        let settings = Config::builder()
+            .add_source(File::with_name(
+                format!("{}Settings.toml", file_settings_path).as_str(),
+            ))
+            .build()?;
+        settings.try_deserialize()
     }
 }

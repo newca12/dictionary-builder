@@ -3,9 +3,10 @@ use env_logger::{self, Env};
 use flate2::write::GzEncoder;
 use flate2::Compression;
 use log::{debug, info, warn};
-use parse_mediawiki_dump::Page;
+use parse_mediawiki_dump_reboot::Page;
+use parse_mediawiki_dump_reboot::schema::Namespace;
 use std::fs::File;
-use std::io;
+use std::{io, env};
 use std::io::{BufWriter, Write};
 use unicode_segmentation::UnicodeSegmentation;
 
@@ -20,7 +21,8 @@ fn main() {
     env_logger::Builder::from_env(Env::default().filter_or("LOG", "info"))
         .format_timestamp(None)
         .init();
-    let settings = Settings::new().unwrap();
+    let args: Vec<String> = env::args().collect();
+    let settings = Settings::new(if args.len() == 1 { "" } else { &args[1] }).unwrap();
 
     if settings.xml_dump.is_some() {
         let xml_dump = settings.xml_dump.as_ref().unwrap();
@@ -40,10 +42,8 @@ fn main() {
             }
         };
         if xml_dump.ends_with(".bz2") {
-            //parse(std::io::BufReader::new(bzip2::bufread::BzDecoder::new(
-            //parse(std::io::BufReader::new(bzip2::bufread::MultiBzDecoder::new
             parse(
-                std::io::BufReader::new(bzip2::bufread::BzDecoder::new(file)),
+                std::io::BufReader::new(bzip2::bufread::MultiBzDecoder::new(file)),
                 &settings,
             );
         } else {
@@ -74,14 +74,14 @@ fn parse(source: impl std::io::BufRead, settings: &Settings) {
         format!("== {{langue|{}}}==", language_short),
         format!("=={{langue|{}}}==", language_short),
     ];
-    for result in parse_mediawiki_dump::parse(source) {
+    for result in parse_mediawiki_dump_reboot::parse(source) {
         match result {
             Err(error) => {
                 eprintln!("Error: {}", error);
                 std::process::exit(1);
             }
             Ok(page) => {
-                if page.namespace == 0
+                if page.namespace == Namespace::Main
                     && match &page.format {
                         None => false,
                         Some(format) => format == "text/x-wiki",

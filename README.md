@@ -36,7 +36,7 @@ http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-article
 5. Launch the program : ./target/release/dictionary-builder
 
 6. Some results :  
-From the English dictionary 847469 entries are generated in less than 2 minutes and 3.5 Gigas disk space are required for the dictionary.
+From the English dictionary 918612 entries are generated in less than 2 minutes and 3.5 Gigas disk space are required for the dictionary.
 
 That's it.
 
@@ -61,5 +61,5 @@ File::create("con").expect("Unable to create file");
 will not trig any error. (This is not specific to Rust, Java will not trig an exception either)
 
 ### License ###
-© 2009-2022 Olivier ROLAND. Distributed under the GPLv3 License.
+© 2009-2023 Olivier ROLAND. Distributed under the GPLv3 License.
 
