@@ -1,4 +1,4 @@
-use config::{ConfigError, Config, File};
+use config::{Config, ConfigError, File};
 
 #[derive(Debug, Deserialize)]
 pub struct Settings {

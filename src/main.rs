@@ -3,11 +3,11 @@ use env_logger::{self, Env};
 use flate2::write::GzEncoder;
 use flate2::Compression;
 use log::{debug, info, warn};
-use parse_mediawiki_dump_reboot::Page;
 use parse_mediawiki_dump_reboot::schema::Namespace;
+use parse_mediawiki_dump_reboot::Page;
 use std::fs::File;
-use std::{io, env};
 use std::io::{BufWriter, Write};
+use std::{env, io};
 use unicode_segmentation::UnicodeSegmentation;
 
 #[macro_use]
@@ -37,7 +37,7 @@ fn main() {
                 std::process::exit(1);
             }
             Ok(file) => {
-                println!("dictionnary-builder will use {}", xml_dump);
+                println!("dictionary-builder will use {}", xml_dump);
                 std::io::BufReader::new(file)
             }
         };
@@ -68,6 +68,7 @@ fn parse(source: impl std::io::BufRead, settings: &Settings) {
     let filters = vec![
         format!("=={}==", language),   //needed for English wiktionary
         format!("== {} ==", language), //neeeded for Nepali wiktionary
+        format!("== {{{{lengua|{}}}}} ==", language_short), //neeeded for Spanish wiktionary
         //needed for French wiktionary
         format!("== {{langue|{}}} ==", language_short),
         format!("=={{langue|{}}} ==", language_short),
@@ -209,7 +210,9 @@ fn locator(word: &str, settings: &Settings) -> String {
         located_full_path.push(std::path::MAIN_SEPARATOR);
         located_full_path.push_str(unicode_vect[0]);
         located_full_path.push(std::path::MAIN_SEPARATOR);
-        located_full_path.push_str(unicode_vect[1]);
+        if !unicode_vect[1].eq(" ") {
+            located_full_path.push_str(unicode_vect[1]);
+        }
     }
     located_full_path
 }

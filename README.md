@@ -17,6 +17,15 @@ dictionary-builder is an EDLA project.
 
 The purpose of [edla.org](https://edla.org) is to promote the state of the art in various domains.
 
+## Warning ##
+
+Don't expect too much from this dictionary builder.  
+After running this program you will find in the ```root``` folder configured in the Settings.toml :  
+* a file named with ```words_file``` configuration that contains all the words found (and expressions if ```expression = true``` is configured)
+* a file named with ```excluded_words_file``` configuration that contains all pages in the dump that were filtered out  
+* and if ```with_definition = true``` is configured a bunch of folders (two level deep) with gzip compressed file. Each file contains the definition in the **rought wikimedia format** wich is probably not what you are expected.
+
+
 ## How to use it ##
 
 0. Rust [need to be installed](https://doc.rust-lang.org/book/ch01-01-installation.html) to generate an executable
@@ -28,15 +37,17 @@ http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-article
 
 2. Uncompress the fresh downloaded dump somewhere (Take care you need up to 7 Gigas of free disk space)
 
-3. Build the executable : cargo build --release  
+3. Edit Settings.toml to indicate the language you choose, where the dump is located and last but not least where the dictionary should be generated.  
+(With Windows systems PATHs need to be escaped for example `C:\\dico\\words` and take care you need at least 4G of free disk space to store your dictionary if you set `with_definition=true`)  
+**The root folder must already exist, you must create is yourself if not.** 
 
-4. Edit Setings.toml to indicate the language you choose, where the dump is located and last but not least where the dictionary should be generated.  
-(With Windows systems PATHs need to be escaped for example `C:\\dico\\words` and take care you need at least 4G of free disk space to store your dictionary if you set `with_definition=true`)
+4. Build the executable : cargo build --release  
 
 5. Launch the program : ./target/release/dictionary-builder
 
 6. Some results :  
-From the English dictionary 918612 entries are generated in less than 2 minutes and 3.5 Gigas disk space are required for the dictionary.
+From the English dictionary 918612 entries are generated in less than 2 minutes and 3.5 Gigas disk space are required for the dictionary.  
+Nota : on some systems antivirus can slow down a lot the generation if ```with_definition = true``` is configured.
 
 That's it.
 

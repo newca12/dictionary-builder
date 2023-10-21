@@ -1,16 +1,16 @@
 [package]
 name = "dictionary-builder"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Olivier ROLAND <newca12@users.noreply.github.com>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 config = "0.13.3"
 log = "0.4.20"
 env_logger = "0.10.0"
-serde_derive = "1.0.188"
-serde = "1.0.188"
+serde_derive = "1.0.189"
+serde = "1.0.189"
 unicode-segmentation = "1.10.1"
-flate2 = "1.0.27"
+flate2 = "1.0.28"
 bzip2 = "0.4.4"
 parse_mediawiki_dump_reboot = "1.0.1"
