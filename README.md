@@ -35,7 +35,7 @@ Choose your favorite language and download the dump containing the current versi
 Example for the english dump:
 http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-articles-multistream.xml.bz2
 
-2. Uncompress the fresh downloaded dump somewhere (Take care you need up to 7 Gigas of free disk space)
+2. Uncompress the fresh downloaded dump somewhere (Take care you need up to 10 Gigas of free disk space)
 
 3. Edit Settings.toml to indicate the language you choose, where the dump is located and last but not least where the dictionary should be generated.  
 (With Windows systems PATHs need to be escaped for example `C:\\dico\\words` and take care you need at least 4G of free disk space to store your dictionary if you set `with_definition=true`)  
@@ -46,7 +46,7 @@ http://dumps.wikimedia.org/enwiktionary/latest/enwiktionary-latest-pages-article
 5. Launch the program : ./target/release/dictionary-builder
 
 6. Some results :  
-From the English dictionary 918612 entries are generated in less than 2 minutes and 3.5 Gigas disk space are required for the dictionary.  
+From the English dictionary 1001051 entries are generated in less than 2 minutes and 3.5 Gigas disk space are required for the dictionary.  
 Nota : on some systems antivirus can slow down a lot the generation if ```with_definition = true``` is configured.
 
 That's it.

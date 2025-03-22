@@ -1,10 +1,10 @@
 extern crate serde;
 use env_logger::{self, Env};
-use flate2::write::GzEncoder;
 use flate2::Compression;
+use flate2::write::GzEncoder;
 use log::{debug, info, warn};
-use parse_mediawiki_dump_reboot::schema::Namespace;
 use parse_mediawiki_dump_reboot::Page;
+use parse_mediawiki_dump_reboot::schema::Namespace;
 use std::fs::File;
 use std::io::{BufWriter, Write};
 use std::{env, io};
@@ -178,7 +178,10 @@ fn build_definition_file(page: &Page, settings: &Settings) -> bool {
                             true
                         }
                         Err(_) => {
-                            warn!("File named '{}' not allowed on this system (probably a reserved word)", title);
+                            warn!(
+                                "File named '{}' not allowed on this system (probably a reserved word)",
+                                title
+                            );
                             false
                         }
                     }
